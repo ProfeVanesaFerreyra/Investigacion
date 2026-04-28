@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investigación en Enfermería</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #0d9488;
+    --teal-light: #14b8a6;
+    --teal-pale: #ccfbf1;
+    --navy: #0f2027;
+    --navy-mid: #1a3a4a;
+    --accent: #f59e0b;
+    --accent2: #ec4899;
+    --bg: #f0fdfa;
+    --white: #ffffff;
+    --gray: #64748b;
+    --gray-light: #e2e8f0;
+    --text: #1e293b;
+    --card-shadow: 0 4px 24px rgba(13,148,136,0.12);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 56px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    color: var(--teal-light);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { background: rgba(20,184,166,0.15); color: var(--teal-light); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #0f4a5a 100%);
+    color: white;
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(13,148,136,0.25) 0%, transparent 70%);
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(20,184,166,0.2);
+    border: 1px solid var(--teal-light);
+    color: var(--teal-light);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+  }
+  .hero h1 span { color: var(--teal-light); }
+  .hero p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+  }
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .hero-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .progress-label { font-size: 0.8rem; color: var(--gray); font-weight: 500; white-space:nowrap; }
+  .progress-track {
+    flex: 1;
+    height: 8px;
+    background: var(--gray-light);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    border-radius: 999px;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+  .progress-pct { font-size: 0.8rem; font-weight: 700; color: var(--teal); min-width: 36px; }
+
+  /* MAIN LAYOUT */
+  .main-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  /* SECTION */
+  .section-block {
+    scroll-margin-top: 70px;
+  }
+  .section-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--teal-pale);
+    line-height: 1;
+    margin-bottom: -0.5rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .section-title span { color: var(--teal); }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--teal-light);
+    padding-left: 1rem;
+  }
+
+  /* DEFINITION BOX */
+  .def-box {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid var(--teal);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .def-box::before {
+    content: '"';
+    position: absolute;
+    right: 1.5rem;
+    top: -0.5rem;
+    font-size: 6rem;
+    color: var(--teal-pale);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+  .def-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .def-label::before {
+    content:'';
+    display:inline-block;
+    width:8px; height:8px;
+    background:var(--teal);
+    border-radius:50%;
+  }
+  .def-text {
+    font-size: 1.05rem;
+    color: var(--text);
+    font-weight: 400;
+    position: relative;
+  }
+  .def-text strong { color: var(--navy); font-weight: 700; }
+
+  /* AUTHOR BADGE */
+  .author-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--navy);
+    color: var(--teal-light);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+
+  /* CRITERIA CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .crit-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.25rem 1.25rem 1rem;
+    box-shadow: 0 2px 12px rgba(13,148,136,0.08);
+    border-top: 4px solid var(--teal);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .crit-card:nth-child(2) { border-top-color: var(--accent); }
+  .crit-card:nth-child(3) { border-top-color: var(--accent2); }
+  .crit-card:nth-child(4) { border-top-color: #8b5cf6; }
+  .crit-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,148,136,0.15); }
+  .crit-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .crit-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+
+  /* 5 ELEMENTS */
+  .elements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .elem-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 2px 8px rgba(13,148,136,0.07);
+    transition: transform 0.2s;
+  }
+  .elem-item:hover { transform: translateX(4px); }
+  .elem-num {
+    min-width: 32px; height: 32px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items:center; justify-content:center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    font-family: 'Syne', sans-serif;
+  }
+  .elem-title { font-weight: 700; color: var(--navy); font-size: 0.95rem; }
+  .elem-desc { font-size: 0.85rem; color: var(--gray); margin-top: 0.2rem; }
+
+  /* FORMULA COMPONENTS */
+  .formula-box {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  .formula-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--teal-light);
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .formula-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  .formula-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(20,184,166,0.3);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .formula-item-q { font-size: 0.72rem; color: var(--teal-light); font-weight: 700; letter-spacing:0.05em; margin-bottom: 0.3rem; }
+  .formula-item-title { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .formula-item-ex { font-size: 0.78rem; color: #94a3b8; }
+
+  /* COMPARISON TABLE */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    font-size: 0.84rem;
+  }
+  thead tr {
+    background: var(--navy);
+    color: white;
+  }
+  thead th {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  tbody tr { border-bottom: 1px solid var(--gray-light); transition: background 0.15s; }
+  tbody tr:hover { background: var(--teal-pale); }
+  tbody tr:last-child { border-bottom: none; }
+  td { padding: 0.75rem 1rem; color: var(--text); vertical-align: top; }
+  td:first-child { font-weight: 700; color: var(--teal); min-width: 32px; text-align:center; }
+  .bad-q { color: #ef4444; font-style: italic; }
+  .good-q { color: #059669; font-weight: 600; }
+  .error-tag {
+    display: inline-block;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.25rem;
+  }
+
+  /* OBJECTIVES */
+  .obj-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  @media(max-width:600px){ .obj-compare { grid-template-columns: 1fr; } }
+  .obj-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+  }
+  .obj-card.general { border-top: 4px solid var(--teal); }
+  .obj-card.especificos { border-top: 4px solid var(--accent); }
+  .obj-type {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .obj-card.general .obj-type { color: var(--teal); }
+  .obj-card.especificos .obj-type { color: var(--accent); }
+  .obj-card h4 { font-family: 'Syne', sans-serif; font-size: 1rem; color: var(--navy); margin-bottom: 0.75rem; }
+  .obj-item {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border-left: 3px solid var(--teal-light);
+  }
+  .obj-card.especificos .obj-item { border-left-color: var(--accent); }
+  .obj-step { font-size: 0.7rem; font-weight: 700; color: var(--gray); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.2rem; }
+
+  /* LINES */
+  .lines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .line-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 12px rgba(13,148,136,0.08);
+    border-left: 4px solid var(--teal);
+  }
+  .line-card:nth-child(2) { border-left-color: var(--accent); }
+  .line-card:nth-child(3) { border-left-color: var(--accent2); }
+  .line-card:nth-child(4) { border-left-color: #8b5cf6; }
+  .line-card:nth-child(5) { border-left-color: #0ea5e9; }
+  .line-letter {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--teal-pale);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .line-card:nth-child(2) .line-letter { color: #fef3c7; }
+  .line-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .line-desc { font-size: 0.8rem; color: var(--gray); margin-bottom: 0.75rem; line-height: 1.5; }
+  .line-example {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.78rem;
+    color: var(--text);
+    font-style: italic;
+  }
+  .line-example::before { content:'" '; font-style:normal; color: var(--teal); font-weight:700; }
+
+  /* EXTRA EXAMPLES SECTION */
+  .extra-ex {
+    background: linear-gradient(135deg, #ecfdf5, #f0fdfa);
+    border: 1px solid #a7f3d0;
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .extra-ex h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    color: #065f46;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .ex-pair { margin-bottom: 1rem; }
+  .ex-pair:last-child { margin-bottom: 0; }
+  .ex-bad { display:flex; align-items:flex-start; gap:0.5rem; font-size:0.85rem; color:#b91c1c; margin-bottom:0.3rem; }
+  .ex-good { display:flex; align-items:flex-start; gap:0.5rem; font-size:0.85rem; color:#065f46; }
+  .ex-tag {
+    font-size:0.65rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    padding:0.15rem 0.5rem; border-radius:4px; white-space:nowrap; margin-top:0.1rem;
+  }
+  .ex-tag.bad { background:#fef2f2; color:#b91c1c; border:1px solid #fecaca; }
+  .ex-tag.good { background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; }
+  .ex-note { font-size:0.75rem; color:#6b7280; margin-top:0.2rem; padding-left:1.25rem; font-style:italic; }
+
+  /* QUIZ SECTION */
+  .quiz-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(13,148,136,0.12);
+    scroll-margin-top: 70px;
+  }
+  .quiz-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .quiz-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+  }
+  .quiz-title span { color: var(--teal); }
+  .quiz-score-badge {
+    background: var(--teal-pale);
+    color: var(--teal);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .quiz-q {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .quiz-q:last-of-type { border-bottom: none; }
+  .q-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+  .q-text { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 1rem; line-height: 1.5; }
+  .q-options { display: flex; flex-direction: column; gap: 0.5rem; }
+  .q-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--gray-light);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--bg);
+    text-align: left;
+    width: 100%;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .q-option:hover { border-color: var(--teal-light); background: var(--teal-pale); }
+  .q-option.correct { border-color: #10b981; background: #ecfdf5; color: #065f46; font-weight: 600; }
+  .q-option.incorrect { border-color: #ef4444; background: #fef2f2; color: #b91c1c; }
+  .q-option.disabled { cursor: default; }
+  .opt-letter {
+    min-width: 24px; height: 24px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-light);
+    border-radius: 50%;
+    display: flex; align-items:center; justify-content:center;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--gray);
+    flex-shrink: 0;
+  }
+  .q-option.correct .opt-letter { background:#10b981; border-color:#10b981; color:white; }
+  .q-option.incorrect .opt-letter { background:#ef4444; border-color:#ef4444; color:white; }
+  .q-feedback {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    display: none;
+    line-height: 1.5;
+  }
+  .q-feedback.show { display: block; }
+  .q-feedback.fb-correct { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+  .q-feedback.fb-incorrect { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+  .q-feedback strong { font-weight: 700; }
+  .quiz-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--teal);
+    border: 2px solid var(--teal);
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--teal-pale); }
+
+  /* RESULT PANEL */
+  .result-panel {
+    display: none;
+    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+    color: white;
+    border-radius: 14px;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .result-panel.show { display: block; }
+  .result-score { font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; color:var(--teal-light); }
+  .result-msg { color:#94a3b8; font-size:1rem; margin-top:0.5rem; }
+
+  /* BIBLIO */
+  .biblio-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .biblio-list li {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    box-shadow: 0 2px 8px rgba(13,148,136,0.07);
+    font-size: 0.88rem;
+    color: var(--gray);
+    border-left: 3px solid var(--teal-light);
+  }
+  .biblio-list li strong { color: var(--navy); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: #64748b;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+  }
+  footer strong { color: var(--teal-light); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  .section-block, .quiz-section {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  /* SCROLL SMOOTH */
+  html { scroll-behavior: smooth; }
+
+  /* TIPBOX */
+  .tip-box {
+    display:flex; gap:0.75rem; align-items:flex-start;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    color: #78350f;
+  }
+  .tip-icon { font-size: 1rem; flex-shrink:0; color: var(--teal); font-weight: 800; margin-top: 0.1rem; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Inv. Enfermería</div>
+  <ul class="nav-links">
+    <li><a href="#tema">Tema e Idea</a></li>
+    <li><a href="#problema">Planteamiento</a></li>
+    <li><a href="#pregunta">Pregunta</a></li>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#lineas">Líneas prioritarias</a></li>
+    <li><a href="#practica">Práctica</a></li>
+  </ul>
+</nav>
+
+<!-- PROGRESS -->
+<div class="progress-bar-wrap">
+  <span class="progress-label">Tu progreso</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="progress-pct" id="progressPct">0%</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Licenciatura en Enfermería</div>
+  <h1>Formulación de <span>Proyectos de Investigación</span> en Enfermería</h1>
+  <p>Una guía didáctica basada en Hernández Sampieri, Pineda·Alvarado·Canales y Fidias Arias para dominar el proceso investigativo.</p>
+  <div class="hero-pills">
+    <span class="hero-pill">Tema → Idea</span>
+    <span class="hero-pill">Pregunta de investigación</span>
+    <span class="hero-pill">Objetivos</span>
+    <span class="hero-pill">Planteamiento del problema</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- BLOQUE 1: TEMA E IDEA -->
+  <div class="section-block" id="tema">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Del <span>Tema</span> a la Idea de Investigación</h2>
+    <p class="section-sub">La investigación científica surge de la necesidad de generar conocimiento que fundamente el cuidado.</p>
+
+    <div class="def-box">
+      <div class="def-label">Definición · Tema</div>
+      <p class="def-text">El <strong>tema</strong> es el área de interés general, mientras que la <strong>idea</strong> es la precisión inicial de lo que se desea indagar.</p>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-icon" aria-hidden="true">→</span>
+      <span>Pensar en investigar <em>"el estrés en enfermería"</em> es un <strong>tema</strong>. Pero precisar que querés estudiar <em>"los niveles de estrés laboral en enfermeros de UTI pediátrica durante el turno nocturno"</em> ya empieza a ser una <strong>idea de investigación</strong>.</span>
+    </div>
+
+    <h3 style="font-family:'Syne',sans-serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem;">Criterios de selección del tema <span style="color:var(--gray);font-weight:400;font-size:0.85rem;">(Sampieri + Pineda)</span></h3>
+
+    <div class="cards-grid">
+      <div class="crit-card">
+        <div class="crit-title">Factibilidad</div>
+        <div class="crit-desc">Disponibilidad de recursos: tiempo, acceso a pacientes, instrumentos validados y financiamiento.</div>
+      </div>
+      <div class="crit-card">
+        <div class="crit-title">Originalidad</div>
+        <div class="crit-desc">No implica descubrir un fenómeno inédito, sino proponer un enfoque nuevo o aplicarlo a un contexto local sin evidencia previa.</div>
+      </div>
+      <div class="crit-card">
+        <div class="crit-title">Pertinencia Social y Disciplinar</div>
+        <div class="crit-desc">Debe contribuir a resolver problemas de salud prevalentes o fortalecer el rol autónomo de enfermería.</div>
+      </div>
+      <div class="crit-card">
+        <div class="crit-title">Ética Profesional</div>
+        <div class="crit-desc">Respeto a los principios de autonomía, beneficencia y justicia (Ley 25.326 y Declaración de Helsinki).</div>
+      </div>
+    </div>
+
+    <!-- Extra examples -->
+    <div class="extra-ex">
+      <h4>Ejemplos adicionales: Tema → Idea</h4>
+      <div class="ex-pair">
+        <div class="ex-bad"><span class="ex-tag bad">Tema</span> Enfermería y pacientes oncológicos</div>
+        <div class="ex-good"><span class="ex-tag good">Idea</span> Necesidades de cuidado paliativo en pacientes con cáncer de colon en estadio IV en un hospital público de Morón, 2025.</div>
+        <div class="ex-note">La idea delimita: ¿quiénes?, ¿qué?, ¿dónde?, ¿cuándo?</div>
+      </div>
+      <div class="ex-pair">
+        <div class="ex-bad"><span class="ex-tag bad">Tema</span> Higiene hospitalaria</div>
+        <div class="ex-good"><span class="ex-tag good">Idea</span> Adherencia al protocolo de lavado de manos entre el personal de enfermería del servicio de cirugía.</div>
+        <div class="ex-note">Pasa de lo amplio (higiene) a lo específico y medible.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: PLANTEAMIENTO -->
+  <div class="section-block" id="problema">
+    <div class="section-number">02</div>
+    <h2 class="section-title">El <span>Planteamiento</span> del Problema</h2>
+    <p class="section-sub">Modelo de Sampieri: "afinar y estructurar más formalmente la idea de investigación".</p>
+
+    <div class="def-box">
+      <div class="def-label">Definición · Sampieri</div>
+      <p class="def-text">Plantear el problema es <strong>"afinar y estructurar más formalmente la idea de investigación"</strong>. Un planteamiento completo consta de cinco elementos interrelacionados.</p>
+    </div>
+
+    <div class="elements-list">
+      <div class="elem-item">
+        <div class="elem-num">1</div>
+        <div>
+          <div class="elem-title">Objetivos</div>
+          <div class="elem-desc">Las guías del estudio. Indican el destino al que se quiere llegar.</div>
+        </div>
+      </div>
+      <div class="elem-item">
+        <div class="elem-num">2</div>
+        <div>
+          <div class="elem-title">Preguntas de investigación</div>
+          <div class="elem-desc">El "qué" del estudio de manera precisa y delimitada.</div>
+        </div>
+      </div>
+      <div class="elem-item">
+        <div class="elem-num">3</div>
+        <div>
+          <div class="elem-title">Justificación</div>
+          <div class="elem-desc">El valor teórico, la utilidad metodológica y la relevancia social del estudio.</div>
+        </div>
+      </div>
+      <div class="elem-item">
+        <div class="elem-num">4</div>
+        <div>
+          <div class="elem-title">Viabilidad</div>
+          <div class="elem-desc">El análisis de alcances y limitaciones de recursos disponibles.</div>
+        </div>
+      </div>
+      <div class="elem-item">
+        <div class="elem-num">5</div>
+        <div>
+          <div class="elem-title">Evaluación de deficiencias en el conocimiento</div>
+          <div class="elem-desc">Ubicar el estudio en el estado del arte: ¿qué es lo que aún no se sabe?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 3: PREGUNTA -->
+  <div class="section-block" id="pregunta">
+    <div class="section-number">03</div>
+    <h2 class="section-title">La <span>Pregunta</span> de Investigación</h2>
+    <p class="section-sub">La expresión formal del problema. Una pregunta bien formulada delimita el estudio y orienta la metodología.</p>
+
+    <div class="def-box">
+      <div class="def-label">Definición</div>
+      <p class="def-text">La pregunta de investigación es la <strong>expresión formal del problema</strong>. Una pregunta bien formulada delimita el estudio y orienta la metodología.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">Fórmula metodológica — 4 componentes esenciales</div>
+      <div class="formula-items">
+        <div class="formula-item">
+          <div class="formula-item-q">¿En quiénes?</div>
+          <div class="formula-item-title">Unidad de análisis</div>
+          <div class="formula-item-ex">Pacientes, enfermeros, estudiantes de enfermería</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-item-q">¿Qué atributo?</div>
+          <div class="formula-item-title">Variables</div>
+          <div class="formula-item-ex">Nivel de estrés, adherencia al tratamiento, calidad del cuidado</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-item-q">¿Dónde?</div>
+          <div class="formula-item-title">Dimensión Espacial</div>
+          <div class="formula-item-ex">Servicio de guardia, Centro de Salud, Hospital Municipal</div>
+        </div>
+        <div class="formula-item">
+          <div class="formula-item-q">¿Cuándo?</div>
+          <div class="formula-item-title">Dimensión Temporal</div>
+          <div class="formula-item-ex">Año 2025, primer semestre, período de pandemia</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Syne',sans-serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem;">Análisis comparativo — Errores comunes</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Formulación errónea</th>
+            <th>Formulación correcta</th>
+            <th>Error identificado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><span class="bad-q">¿Cómo cuidan los enfermeros a los niños?</span></td>
+            <td><span class="good-q">¿Cuál es el nivel de cumplimiento de los protocolos de canalización venosa pediátrica en el Hospital X durante 2025?</span></td>
+            <td><span class="error-tag">Ambigüedad en la variable "cuidar"</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><span class="bad-q">¿El estrés causa errores en la medicación?</span></td>
+            <td><span class="good-q">¿Qué relación existe entre los niveles de estrés laboral y la frecuencia de eventos adversos en la administración de fármacos en enfermeros de UTI?</span></td>
+            <td><span class="error-tag">Presupone causalidad (Sesgo)</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><span class="bad-q">¿Por qué no se lavan las manos los médicos?</span></td>
+            <td><span class="good-q">¿Cuáles son las barreras percibidas por el personal de salud para la adherencia al lavado de manos en el servicio de cirugía del Hospital Y?</span></td>
+            <td><span class="error-tag">Tono acusatorio + variable sin rigor</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><span class="bad-q">¿Es buena la atención en la guardia?</span></td>
+            <td><span class="good-q">¿Cuál es el grado de satisfacción de los usuarios externos respecto a la atención de enfermería en el servicio de emergencias del Hospital Z?</span></td>
+            <td><span class="error-tag">Uso de adjetivos subjetivos ("buena")</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><span class="bad-q">El burnout en enfermeros de noche.</span></td>
+            <td><span class="good-q">¿Cuál es la prevalencia de Síndrome de Burnout en los enfermeros del turno nocturno de un Hospital Público de Morón en el año 2025?</span></td>
+            <td><span class="error-tag">No es una pregunta, es un enunciado</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><span class="bad-q">¿Afecta el pluriempleo a la enfermería?</span></td>
+            <td><span class="good-q">¿De qué manera influye el pluriempleo en el nivel de fatiga muscular percibida por el personal de enfermería en centros de diálisis?</span></td>
+            <td><span class="error-tag">Sin delimitación de variable dependiente</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><span class="bad-q">¿Saben los pacientes sobre su diabetes?</span></td>
+            <td><span class="good-q">¿Cuál es el nivel de conocimientos sobre el autocuidado preventivo de pie diabético en adultos en un Centro de Atención Primaria?</span></td>
+            <td><span class="error-tag">Objeto de conocimiento impreciso</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><span class="bad-q">¿Cómo mejorar la formación docente?</span></td>
+            <td><span class="good-q">¿Qué impacto tiene la simulación clínica de alta fidelidad en el desarrollo de competencias de urgencias en estudiantes de enfermería?</span></td>
+            <td><span class="error-tag">Enfoque propositivo antes de diagnosticar</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><span class="bad-q">¿Los ancianos están bien atendidos?</span></td>
+            <td><span class="good-q">¿Cuál es la frecuencia de úlceras por presión en adultos mayores institucionalizados en residencias geriátricas de CABA durante 2024?</span></td>
+            <td><span class="error-tag">Pregunta dicotómica (Sí/No)</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><span class="bad-q">¿Qué piensan los enfermeros del aborto?</span></td>
+            <td><span class="good-q">¿Cuáles son las representaciones sociales del personal de enfermería sobre la objeción de conciencia en el marco de la Ley de IVE?</span></td>
+            <td><span class="error-tag">Sin marco conceptual para la variable</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Extra examples pregunta -->
+    <div class="extra-ex">
+      <h4>Más ejemplos para práctica</h4>
+      <div class="ex-pair">
+        <div class="ex-bad"><span class="ex-tag bad">Incorrecta</span> ¿Los enfermeros trabajan bien en neonatología?</div>
+        <div class="ex-good"><span class="ex-tag good">Correcta</span> ¿Cuál es el nivel de adherencia a los protocolos de termorregulación neonatal en el servicio de neonatología del Hospital Regional de Morón durante el primer semestre de 2025?</div>
+        <div class="ex-note">Se reemplaza "bien" (subjetivo) por una variable medible (adherencia a protocolo) con espacio y tiempo definidos.</div>
+      </div>
+      <div class="ex-pair">
+        <div class="ex-bad"><span class="ex-tag bad">Incorrecta</span> ¿Los pacientes diabéticos toman sus medicamentos?</div>
+        <div class="ex-good"><span class="ex-tag good">Correcta</span> ¿Cuál es el grado de adherencia terapéutica al tratamiento hipoglucemiante en adultos con diabetes tipo 2 que asisten al Centro de Salud N°5 de Morón durante 2025?</div>
+        <div class="ex-note">Se precisa la población (adultos con DM2), la variable (adherencia terapéutica), el contexto (Centro de Salud) y el tiempo (2025).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 4: OBJETIVOS -->
+  <div class="section-block" id="objetivos">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Los <span>Objetivos</span>: General vs. Específicos</h2>
+    <p class="section-sub">Los objetivos indican el destino de la investigación. Deben ser medibles, observables y redactados en infinitivo.</p>
+
+    <div class="def-box">
+      <div class="def-label">Regla clave</div>
+      <p class="def-text">Los objetivos deben ser <strong>medibles, observables y redactados en infinitivo</strong> (determinar, identificar, evaluar, describir, analizar…). <strong>No son actividades</strong>, son los logros esperados del estudio.</p>
+    </div>
+
+    <div class="obj-compare">
+      <div class="obj-card general">
+        <div class="obj-type">Objetivo General</div>
+        <h4>La meta global del estudio</h4>
+        <div class="obj-item">
+          <div>Responde directamente a la pregunta de investigación. Contiene la <strong>variable principal</strong>, la <strong>población</strong> y el <strong>contexto</strong>.</div>
+        </div>
+        <div class="obj-item" style="margin-top:0.75rem;border-color:var(--teal);">
+          <strong>Ejemplo:</strong><br>Determinar la relación entre el clima laboral y la calidad del cuidado de enfermería en el Hospital Municipal de Morón, 2025.
+        </div>
+      </div>
+      <div class="obj-card especificos">
+        <div class="obj-type">Objetivos Específicos</div>
+        <h4>Los pasos intermedios y lógicos</h4>
+        <div class="obj-item">
+          <div class="obj-step">Paso 1 · Inicial</div>
+          Caracterizar sociodemográficamente al personal de enfermería.
+        </div>
+        <div class="obj-item">
+          <div class="obj-step">Paso 2 · Diagnóstico</div>
+          Identificar las dimensiones del clima laboral predominantes.
+        </div>
+        <div class="obj-item">
+          <div class="obj-step">Paso 3 · Comparativo</div>
+          Evaluar el nivel de calidad del cuidado según la percepción del paciente.
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-icon" aria-hidden="true">→</span>
+      <span>La <strong>sumatoria de los objetivos específicos debe dar como resultado el objetivo general</strong>. Si al sumarlos no llegás al general, faltan pasos o sobran objetivos.</span>
+    </div>
+
+    <div class="extra-ex">
+      <h4>Más ejemplos de objetivos bien redactados</h4>
+      <div class="ex-pair">
+        <div class="ex-bad"><span class="ex-tag bad">Incorrecto</span> "Hacer una encuesta a los enfermeros sobre el estrés"</div>
+        <div class="ex-good"><span class="ex-tag good">Correcto</span> "Medir el nivel de estrés laboral en el personal de enfermería del servicio de emergencias mediante la Escala de Estrés de Enfermería (NSS)"</div>
+        <div class="ex-note">El incorrecto describe una actividad (hacer encuesta). El correcto expresa un logro medible (medir el nivel de estrés con instrumento validado).</div>
+      </div>
+      <div class="ex-pair">
+        <div class="ex-bad"><span class="ex-tag bad">Incorrecto</span> "Conocer si los pacientes saben sobre su enfermedad"</div>
+        <div class="ex-good"><span class="ex-tag good">Correcto</span> "Evaluar el nivel de conocimiento sobre el autocuidado en pacientes con insuficiencia cardíaca internados en el servicio de cardiología"</div>
+        <div class="ex-note">"Conocer si" no es un objetivo técnico. "Evaluar el nivel de" sí es medible y orientado al resultado.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 5: LÍNEAS UM -->
+  <div class="section-block" id="lineas">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Líneas <span>Prioritarias de Investigación</span></h2>
+    <p class="section-sub">Los proyectos de investigación deben inscribirse en una de estas áreas estratégicas para garantizar su relevancia institucional y social.</p>
+
+    <div class="lines-grid">
+      <div class="line-card">
+        <div class="line-letter">A</div>
+        <div class="line-title">Promoción de la Salud y Prevención</div>
+        <div class="line-desc">Orientada al primer nivel de atención y educación sanitaria.</div>
+        <div class="line-example">¿Cuál es la efectividad de las intervenciones educativas de enfermería en el control de la hemoglobina glicosilada en pacientes con diabetes tipo 2 de Morón?</div>
+      </div>
+      <div class="line-card">
+        <div class="line-letter">B</div>
+        <div class="line-title">Educación y Formación en Enfermería</div>
+        <div class="line-desc">Procesos pedagógicos y curriculares de la carrera.</div>
+        <div class="line-example">¿Cómo influyen las estrategias de enseñanza virtuales en el rendimiento académico de los estudiantes de Investigación II?</div>
+      </div>
+      <div class="line-card">
+        <div class="line-letter">C</div>
+        <div class="line-title">Calidad y Seguridad en el Cuidado</div>
+        <div class="line-desc">Reducción de riesgos y excelencia asistencial.</div>
+        <div class="line-example">¿Qué incidencia tienen las caídas accidentales en pacientes hospitalizados con riesgo de movilidad reducida en el Hospital Municipal de Morón?</div>
+      </div>
+      <div class="line-card">
+        <div class="line-letter">D</div>
+        <div class="line-title">Gestión y Liderazgo en Enfermería</div>
+        <div class="line-desc">Administración de servicios y talento humano en salud.</div>
+        <div class="line-example">¿Cuál es el impacto de la gestión por procesos en la reducción de tiempos de ingreso en unidades de cuidados intensivos?</div>
+      </div>
+      <div class="line-card">
+        <div class="line-letter">E</div>
+        <div class="line-title">Poblaciones Vulnerables y Envejecimiento</div>
+        <div class="line-desc">Estudios sobre minorías, adultos mayores y equidad en salud.</div>
+        <div class="line-example">¿Cuáles son las necesidades de cuidado paliativo domiciliario percibidas por cuidadores familiares de adultos mayores con enfermedades oncológicas terminales?</div>
+      </div>
+    </div>
+
+    <!-- BIBLIOGRAFÍA -->
+    <h3 style="font-family:'Syne',sans-serif;font-size:1.1rem;color:var(--navy);margin-bottom:1rem;">Bibliografía académica obligatoria</h3>
+    <ul class="biblio-list">
+      <li><strong>Hernández Sampieri, R. (2014).</strong> Metodología de la Investigación. México: McGraw-Hill. <em>(6ª edición)</em></li>
+      <li><strong>Pineda, E., Alvarado, E., Canales, F. (2008).</strong> Metodología de la Investigación. Washington D.C.: OPS.</li>
+      <li><strong>Arias, F. (2012).</strong> El Proyecto de Investigación. Caracas: Episteme.</li>
+      <li><strong>Universidad de Morón.</strong> Líneas Prioritarias de Investigación en Enfermería.</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ SECTION -->
+  <div class="quiz-section" id="practica">
+    <div class="quiz-header">
+      <div>
+        <div class="q-label">Zona de práctica</div>
+        <h2 class="quiz-title">¿Cuánto <span>aprendiste</span>?</h2>
+      </div>
+      <div class="quiz-score-badge" id="scoreBadge">0 / 10 correctas</div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="quiz-q" data-answer="b">
+      <div class="q-label">Pregunta 1 · Tema e Idea</div>
+      <div class="q-text">¿Cuál de las siguientes opciones representa una <strong>idea de investigación</strong> correctamente delimitada?</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> La salud de los enfermeros.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> Nivel de fatiga percibida en enfermeros del turno nocturno en una clínica privada de Morón, 2025.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> El estrés en la enfermería.</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> Problemas laborales del personal de salud.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> La opción B delimita: ¿quiénes? (enfermeros del turno nocturno), ¿qué? (fatiga percibida), ¿dónde? (clínica privada de Morón), ¿cuándo? (2025). Las otras opciones son temas amplios sin precisión.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es B. Una idea de investigación requiere delimitar: población (¿quiénes?), variable (¿qué?), lugar (¿dónde?) y tiempo (¿cuándo?). Solo la opción B cumple todos esos criterios.</div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quiz-q" data-answer="c">
+      <div class="q-label">Pregunta 2 · Criterios de selección</div>
+      <div class="q-text">Un tema de tesis tiene originalidad cuando…</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> Nadie en el mundo ha investigado ese fenómeno antes.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> La profesora lo considera creativo.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> Se propone un enfoque nuevo o se aplica una teoría a un contexto local donde no hay evidencia previa.</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> Usa tecnología de última generación.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> Según Sampieri y Pineda, la originalidad no requiere descubrir un fenómeno inédito. Alcanza con proponer un enfoque nuevo o aplicar una teoría a un contexto local donde no haya evidencia previa.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es C. La originalidad en investigación científica no exige que nadie en el mundo haya estudiado el tema. Basta con que el enfoque o el contexto de aplicación sean nuevos.</div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quiz-q" data-answer="d">
+      <div class="q-label">Pregunta 3 · Planteamiento del problema</div>
+      <div class="q-text">Según Sampieri, ¿cuántos elementos interrelacionados tiene un planteamiento completo del problema?</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> Tres: objetivos, preguntas y justificación.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> Cuatro: objetivos, preguntas, justificación y viabilidad.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> Dos: objetivos y preguntas de investigación.</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> Cinco: objetivos, preguntas, justificación, viabilidad y evaluación de deficiencias en el conocimiento.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> El modelo de Sampieri establece cinco elementos: (1) Objetivos, (2) Preguntas, (3) Justificación, (4) Viabilidad y (5) Evaluación de deficiencias en el conocimiento (estado del arte).</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es D. Sampieri describe cinco elementos interrelacionados. Muchos estudiantes olvidan el quinto: la evaluación de deficiencias en el conocimiento (qué es lo que aún no se sabe).</div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quiz-q" data-answer="a">
+      <div class="q-label">Pregunta 4 · Pregunta de investigación</div>
+      <div class="q-text">¿Cuál de las siguientes es una pregunta de investigación correctamente formulada?</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> ¿Cuál es la prevalencia de Síndrome de Burnout en los enfermeros del turno nocturno de un Hospital Público de Morón en el año 2025?</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> El burnout en enfermeros de noche.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> ¿Por qué los médicos no se lavan las manos?</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> ¿Es buena la atención en la guardia?</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> La opción A es una pregunta técnica que incluye: variable (Burnout), unidad de análisis (enfermeros del turno nocturno), dimensión espacial (Hospital Público de Morón) y temporal (2025). B es un enunciado. C tiene tono acusatorio. D usa adjetivo subjetivo.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es A. Contiene los 4 componentes de la fórmula metodológica: unidad de análisis, variable, dimensión espacial y temporal. Las otras tienen errores clásicos (enunciado, tono acusatorio, adjetivo subjetivo).</div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="quiz-q" data-answer="b">
+      <div class="q-label">Pregunta 5 · Componentes de la pregunta</div>
+      <div class="q-text">En la pregunta: <em>"¿Cuál es el nivel de estrés laboral en enfermeros de UTI del Hospital Municipal durante 2025?"</em> — ¿cuál es la <strong>unidad de análisis</strong>?</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> El estrés laboral.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> Los enfermeros de UTI.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> El Hospital Municipal.</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> El año 2025.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> La unidad de análisis responde a ¿en quiénes? → los enfermeros de UTI. El estrés laboral es la variable, el Hospital Municipal es la dimensión espacial y 2025 es la dimensión temporal.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es B. Recordá: unidad de análisis = ¿en quiénes? → los enfermeros de UTI. No confundir con la variable (estrés laboral) ni con la dimensión espacial o temporal.</div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="quiz-q" data-answer="c">
+      <div class="q-label">Pregunta 6 · Objetivos</div>
+      <div class="q-text">¿Cuál de las siguientes opciones es un objetivo <strong>correctamente redactado</strong>?</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> Hacer una encuesta a los enfermeros sobre el estrés.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> Investigar si los pacientes están conformes con la atención.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> Determinar la relación entre el clima laboral y la calidad del cuidado de enfermería en el Hospital Municipal de Morón, 2025.</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> Ver qué pasa con los turnos nocturnos en el hospital.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> La opción C está redactada en infinitivo (Determinar), incluye la variable principal (relación clima laboral–calidad del cuidado), la población implícita (enfermería) y el contexto (Hospital Municipal de Morón, 2025).</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es C. Recordá: los objetivos deben estar en infinitivo, ser medibles y no ser actividades. "Hacer una encuesta" y "ver qué pasa" son actividades, no objetivos.</div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="quiz-q" data-answer="d">
+      <div class="q-label">Pregunta 7 · Objetivo General vs. Específicos</div>
+      <div class="q-text">¿Cuál de las siguientes afirmaciones sobre los objetivos específicos es <strong>correcta</strong>?</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> Pueden ser los mismos que el objetivo general, solo formulados distinto.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> Siempre deben ser exactamente tres.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> Describen las actividades del investigador (entrevistar, encuestar, etc.).</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> Son los pasos intermedios y lógicos cuya sumatoria debe dar como resultado el objetivo general.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> Los objetivos específicos son los pasos intermedios y su sumatoria debe resultar en el objetivo general. No son actividades y su cantidad depende del diseño del estudio, no existe un número fijo.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es D. Un error muy frecuente es confundir objetivos con actividades. Otro error es pensar que siempre deben ser tres. La clave es que al sumarlos lógicamente se obtenga el objetivo general.</div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="quiz-q" data-answer="a">
+      <div class="q-label">Pregunta 8 · Error metodológico</div>
+      <div class="q-text">La pregunta <em>"¿El estrés causa errores en la medicación?"</em> tiene como error principal…</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> Presuponer causalidad sin haber investigado (sesgo).</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> No mencionar el hospital donde se realizará el estudio.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> Usar un adjetivo subjetivo.</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> Ser un enunciado y no una pregunta.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> La pregunta asume que el estrés <em>causa</em> errores, pero eso es exactamente lo que se quiere investigar. Eso es un sesgo de causalidad. La pregunta correcta indaga la <em>relación</em> entre ambas variables, sin asumir dirección causal.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es A. El verbo "causa" presupone una relación causal antes de haber investigado. En metodología, primero se explora la relación y luego, si el diseño lo permite, se estudia causalidad.</div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="quiz-q" data-answer="b">
+      <div class="q-label">Pregunta 9 · Líneas de investigación</div>
+      <div class="q-text">Un estudio sobre <em>"el impacto de la simulación clínica en el aprendizaje de reanimación cardiopulmonar en estudiantes de enfermería"</em> se inscribe en la línea…</div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> A · Promoción de la Salud y Prevención</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> B · Educación y Formación en Enfermería</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> C · Calidad y Seguridad en el Cuidado del Paciente</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> D · Gestión y Liderazgo en Enfermería</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> La simulación clínica como estrategia pedagógica en estudiantes de enfermería corresponde a la Línea B: Educación y Formación en Enfermería, que aborda los procesos pedagógicos y curriculares de la carrera.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es B. El foco es el aprendizaje de estudiantes a través de una metodología pedagógica (simulación). Eso es formación. No confundir con calidad del cuidado (Línea C), que estudia la práctica asistencial.</div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="quiz-q" data-answer="c">
+      <div class="q-label">Pregunta 10 · Integración</div>
+      <div class="q-text">Identificá el <strong>error metodológico</strong> en la siguiente pregunta: <em>"¿Están bien atendidos los adultos mayores en las residencias geriátricas?"</em></div>
+      <div class="q-options">
+        <button class="q-option" onclick="answer(this,'a')"><span class="opt-letter">A</span> No especifica el año del estudio.</button>
+        <button class="q-option" onclick="answer(this,'b')"><span class="opt-letter">B</span> Presupone causalidad.</button>
+        <button class="q-option" onclick="answer(this,'c')"><span class="opt-letter">C</span> Usa un adjetivo subjetivo ("bien atendidos") y admite solo respuesta dicotómica (sí/no).</button>
+        <button class="q-option" onclick="answer(this,'d')"><span class="opt-letter">D</span> No especifica la variable de estudio.</button>
+      </div>
+      <div class="q-feedback fb-correct"><strong>Correcto.</strong> "Bien atendidos" es subjetivo y no es una variable operacionalizable. Además, la pregunta solo permite responder sí o no, lo que limita cualquier análisis científico. La versión correcta mediría una variable concreta, como la frecuencia de úlceras por presión o el nivel de satisfacción.</div>
+      <div class="q-feedback fb-incorrect"><strong>Incorrecto.</strong> La respuesta correcta es C. Hay dos errores simultáneos: (1) "bien atendidos" es un adjetivo subjetivo que no puede medirse, y (2) la pregunta solo admite respuesta sí/no (dicotómica), lo que la hace científicamente inútil.</div>
+    </div>
+
+    <div class="quiz-actions">
+      <button class="btn-secondary" onclick="resetQuiz()">Reiniciar práctica</button>
+    </div>
+
+    <div class="result-panel" id="resultPanel">
+      <div class="result-score" id="resultScore">0/10</div>
+      <div class="result-msg" id="resultMsg"></div>
+    </div>
+  </div>
+
+</div><!-- /main-wrap -->
+
+<footer>
+  Guía Metodológica · Licenciatura en Enfermería<br>
+  Basada en Hernández Sampieri (2014) · Pineda, Alvarado &amp; Canales (2008) · Arias (2012)
+</footer>
+
+<script>
+  let score = 0;
+  let answered = 0;
+  const total = 10;
+
+  function answer(btn, choice) {
+    const qBlock = btn.closest('.quiz-q');
+    if (qBlock.dataset.done) return;
+    qBlock.dataset.done = 'true';
+
+    const correct = qBlock.dataset.answer;
+    const options = qBlock.querySelectorAll('.q-option');
+    options.forEach(o => { o.classList.add('disabled'); o.onclick = null; });
+
+    const fbCorrect = qBlock.querySelector('.fb-correct');
+    const fbIncorrect = qBlock.querySelector('.fb-incorrect');
+
+    if (choice === correct) {
+      btn.classList.add('correct');
+      fbCorrect.classList.add('show');
+      score++;
+    } else {
+      btn.classList.add('incorrect');
+      fbIncorrect.classList.add('show');
+      // Also highlight the correct one
+      options.forEach(o => {
+        const letter = o.querySelector('.opt-letter').textContent.toLowerCase();
+        if (letter === correct) o.classList.add('correct');
+      });
+    }
+
+    answered++;
+    updateScore();
+    updateProgress();
+
+    if (answered === total) {
+      showResult();
+    }
+  }
+
+  function updateScore() {
+    document.getElementById('scoreBadge').textContent = score + ' / ' + answered + ' correctas';
+  }
+
+  function updateProgress() {
+    const pct = Math.round((answered / total) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  function showResult() {
+    const panel = document.getElementById('resultPanel');
+    const scoreEl = document.getElementById('resultScore');
+    const msgEl = document.getElementById('resultMsg');
+    panel.classList.add('show');
+    scoreEl.textContent = score + '/' + total;
+    if (score >= 9) msgEl.textContent = '¡Excelente! Dominás los conceptos de investigación.';
+    else if (score >= 7) msgEl.textContent = '¡Muy bien! Repasá los temas donde fallaste.';
+    else if (score >= 5) msgEl.textContent = 'Regular. Te recomendamos releer los bloques y volver a intentarlo.';
+    else msgEl.textContent = 'Necesitás repasar el contenido. ¡Cada intento suma!';
+  }
+
+  function resetQuiz() {
+    score = 0; answered = 0;
+    document.getElementById('scoreBadge').textContent = '0 / 10 correctas';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressPct').textContent = '0%';
+    document.getElementById('resultPanel').classList.remove('show');
+    document.querySelectorAll('.quiz-q').forEach(q => {
+      delete q.dataset.done;
+      q.querySelectorAll('.q-option').forEach(o => {
+        o.classList.remove('correct','incorrect','disabled');
+        const letter = o.querySelector('.opt-letter').textContent.toLowerCase();
+        o.onclick = function(){ answer(o, letter); };
+      });
+      q.querySelectorAll('.q-feedback').forEach(f => f.classList.remove('show'));
+    });
+  }
+</script>
+</body>
+</html>
