@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objetivos de Investigación · Enfermería</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #111111;
+  --ink-mid: #222222;
+  --rose: #d6006e;
+  --rose-light: #f0148a;
+  --rose-pale: #fce8f3;
+  --gold: #d6006e;
+  --gold-pale: #fce8f3;
+  --sage: #333333;
+  --sage-pale: #f4f4f4;
+  --slate: #444444;
+  --line: #e0e0e0;
+  --bg: #ffffff;
+  --white: #ffffff;
+  --shadow: 0 4px 28px rgba(0,0,0,0.09);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.78; font-size:1.05rem;
+}
+
+/* ── NAV ─────────────────────────────────────────── */
+nav{
+  background:var(--ink);
+  height:54px;
+  display:flex;
+  align-items:center;
+  padding:0 2rem;
+  gap:2rem;
+  position:sticky;
+  top:0;
+  z-index:200;
+  box-shadow:0 2px 16px rgba(0,0,0,0.35);
+}
+.nav-brand{
+  font-family:'DM Serif Display',serif;
+  font-size:1.15rem;
+  color:#ffffff;
+  white-space:nowrap;
+  letter-spacing:0.01em;
+}
+.nav-links{
+  display:flex;gap:0.15rem;flex-wrap:wrap;list-style:none;
+}
+.nav-links a{
+  color:#cccccc;
+  text-decoration:none;
+  font-size:0.88rem;
+  font-weight:500;
+  padding:0.35rem 0.8rem;
+  border-radius:6px;
+  transition:all 0.18s;
+  letter-spacing:0.02em;
+}
+.nav-links a:hover{background:rgba(214,0,110,0.18);color:#ffffff;}
+
+/* ── PROGRESS ─────────────────────────────────────── */
+.prog-strip{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  padding:0.7rem 2rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.prog-label{font-size:0.75rem;color:var(--slate);font-weight:500;white-space:nowrap;}
+.prog-track{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--rose-light));border-radius:99px;width:0%;transition:width 0.5s ease;}
+.prog-pct{font-size:0.78rem;font-weight:700;color:var(--rose);min-width:34px;}
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero{
+  background:#ffffff;
+  color:#111111;
+  padding:5.5rem 2rem 4.5rem;
+  border-bottom: 3px solid var(--rose);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 85% 10%, rgba(214,0,110,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(214,0,110,0.05) 0%, transparent 50%);
+}
+.hero-eyebrow{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--rose);
+  margin-bottom:1.5rem;
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:'';display:block;width:32px;height:1px;background:var(--rose);opacity:0.6;
+}
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.4rem,5.5vw,4.2rem);
+  line-height:1.08;
+  letter-spacing:-0.01em;
+  position:relative;
+  max-width:820px;
+  margin:0 auto 1.25rem;
+  color:#111111;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--rose);
+}
+.hero-sub{
+  color:#555555;
+  font-size:1.1rem;
+  max-width:580px;
+  margin:0 auto 2.75rem;
+  position:relative;
+  font-weight:400;
+}
+.hero-tags{
+  display:flex;justify-content:center;gap:0.6rem;flex-wrap:wrap;position:relative;
+}
+.hero-tag{
+  background:#f4f4f4;
+  border:1px solid var(--line);
+  color:#333333;
+  font-size:0.78rem;
+  font-weight:500;
+  padding:0.35rem 0.9rem;
+  border-radius:4px;
+  letter-spacing:0.03em;
+}
+
+/* ── MAIN WRAP ────────────────────────────────────── */
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:4rem 1.5rem 6rem;
+  display:flex;flex-direction:column;gap:5rem;
+}
+
+/* ── SECTION ─────────────────────────────────────── */
+.sec{scroll-margin-top:64px;}
+.sec-num{
+  font-family:'DM Serif Display',serif;
+  font-size:5.5rem;
+  color:#f0c0dc;
+  line-height:1;
+  margin-bottom:-0.75rem;
+  letter-spacing:-0.02em;
+}
+.sec-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,4vw,3.2rem);
+  color:var(--ink);
+  line-height:1.15;
+  margin-bottom:0.4rem;
+}
+.sec-title span{color:var(--rose);}
+.sec-lead{
+  font-size:1.05rem;
+  color:var(--slate);
+  margin-bottom:2.25rem;
+  padding-left:1rem;
+  border-left:3px solid var(--rose-light);
+}
+
+/* ── DEFINITION ─────────────────────────────────── */
+.def{
+  background:var(--white);
+  border-radius:12px;
+  padding:1.75rem 2rem 1.75rem 1.75rem;
+  border-left:5px solid var(--rose);
+  box-shadow:var(--shadow);
+  margin-bottom:1.75rem;
+  position:relative;
+  overflow:hidden;
+}
+.def::after{
+  content:'Def.';
+  position:absolute;right:1.5rem;top:1rem;
+  font-family:'DM Serif Display',serif;
+  font-size:3.5rem;
+  color:rgba(192,57,43,0.07);
+  line-height:1;
+  pointer-events:none;
+}
+.def-tag{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:0.5rem;display:flex;align-items:center;gap:0.5rem;
+}
+.def-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--rose);display:inline-block;}
+.def-body{font-size:1.1rem;color:var(--ink);}
+.def-body strong{font-weight:700;color:var(--ink-mid);}
+.def-body em{font-style:italic;color:var(--slate);}
+
+/* ── NOTE BOX ────────────────────────────────────── */
+.note{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:#fce8f3;
+  border:1px solid #f0b8d8;
+  border-radius:10px;
+  padding:1rem 1.25rem;
+  margin-bottom:1.75rem;
+  font-size:0.95rem;color:#7a0040;
+}
+.note-mark{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;
+  color:var(--rose);
+  min-width:20px;
+  margin-top:0.05rem;
+}
+
+/* ── FORMULA BOX ─────────────────────────────────── */
+.formula{
+  background:var(--ink-mid);
+  color:white;
+  border-radius:14px;
+  padding:2rem;
+  margin-bottom:1.75rem;
+}
+.formula-label{
+  font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--rose-light);margin-bottom:1.5rem;
+}
+.formula-text{
+  font-family:'DM Serif Display',serif;
+  font-size:1.35rem;
+  color:#e8e0d8;
+  line-height:1.5;
+  border-left:3px solid var(--rose);
+  padding-left:1.25rem;
+  margin-bottom:1.5rem;
+}
+.formula-text em{color:var(--rose-light);font-style:italic;}
+.formula-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:0.85rem;
+}
+.formula-card{
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:9px;
+  padding:1rem;
+}
+.fc-q{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--rose-light);margin-bottom:0.3rem;text-transform:uppercase;}
+.fc-title{font-weight:700;font-size:1rem;margin-bottom:0.3rem;color:#f0ece8;}
+.fc-ex{font-size:0.86rem;color:#aabbcc;line-height:1.5;}
+
+/* ── TWO-COL OBJECTIVES ─────────────────────────── */
+.obj-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.75rem;
+}
+@media(max-width:620px){.obj-grid{grid-template-columns:1fr;}}
+.obj-card{
+  background:var(--white);border-radius:14px;padding:1.5rem;
+  box-shadow:var(--shadow);
+}
+.obj-card.general{border-top:5px solid var(--rose);}
+.obj-card.especificos{border-top:5px solid #111111;}
+.obj-kind{
+  font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  margin-bottom:0.5rem;
+}
+.obj-card.general .obj-kind{color:var(--rose);}
+.obj-card.especificos .obj-kind{color:#111111;}
+.obj-card h4{
+  font-family:'DM Serif Display',serif;
+  font-size:1.05rem;color:var(--ink);margin-bottom:0.9rem;
+}
+.obj-item{
+  font-size:0.93rem;
+  padding:0.6rem 0.9rem;
+  background:var(--bg);
+  border-radius:7px;
+  margin-bottom:0.5rem;
+  border-left:3px solid;
+  line-height:1.5;
+}
+.obj-card.general .obj-item{border-left-color:var(--rose-light);}
+.obj-card.especificos .obj-item{border-left-color:#111111;}
+.obj-step{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate);margin-bottom:0.2rem;}
+
+/* ── BLOOM TABLE ─────────────────────────────────── */
+.table-wrap{
+  overflow-x:auto;border-radius:12px;box-shadow:var(--shadow);margin-bottom:1.75rem;
+}
+table{width:100%;border-collapse:collapse;background:var(--white);font-size:0.93rem;}
+thead tr{background:var(--ink);}
+thead th{
+  padding:0.9rem 1.1rem;text-align:left;
+  font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:#e8d5c4;
+}
+thead th:first-child{border-radius:12px 0 0 0;}
+thead th:last-child{border-radius:0 12px 0 0;}
+tbody tr{border-bottom:1px solid var(--line);}
+tbody tr:hover{background:#fce8f3;}
+tbody tr:last-child{border-bottom:none;}
+td{padding:0.8rem 1.1rem;vertical-align:top;color:var(--ink);}
+td strong{color:var(--rose);font-weight:700;}
+td:last-child strong{color:#111111;}
+.td-verb{font-weight:700;}
+
+/* ── SMART GRID ──────────────────────────────────── */
+.smart-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:0.85rem;
+  margin-bottom:1.75rem;
+}
+.smart-item{
+  background:var(--white);
+  border-radius:10px;
+  padding:1rem 1.1rem;
+  box-shadow:0 2px 12px rgba(0,0,0,0.07);
+  border-left:4px solid var(--rose);
+  font-size:0.93rem;
+  line-height:1.55;
+  color:var(--ink);
+  transition:transform 0.18s,box-shadow 0.18s;
+}
+.smart-item:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,26,46,0.12);}
+.smart-item:nth-child(3n+2){border-left-color:#111111;}
+.smart-item:nth-child(3n+3){border-left-color:var(--rose-light);}
+.smart-item strong{color:var(--rose);font-weight:700;}
+.smart-item:nth-child(3n+2) strong{color:#111111;}
+.smart-item:nth-child(3n+3) strong{color:var(--rose-light);}
+
+/* ── SMART ACRONYM ───────────────────────────────── */
+.smart-def{
+  display:flex;gap:0.85rem;flex-wrap:wrap;margin-bottom:1.75rem;
+}
+.smart-letter{
+  background:var(--ink);color:white;border-radius:10px;
+  padding:1rem 1.25rem;flex:1;min-width:140px;
+  text-align:center;
+}
+.sl-letter{
+  font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--rose-light);line-height:1;
+  margin-bottom:0.25rem;
+}
+.sl-word{font-weight:700;font-size:0.9rem;color:#f0f0f0;margin-bottom:0.2rem;}
+.sl-desc{font-size:0.8rem;color:#aaaaaa;}
+
+/* ── MATRIX ──────────────────────────────────────── */
+.matrix{
+  background:var(--white);border-radius:14px;padding:2rem;
+  box-shadow:var(--shadow);margin-bottom:1.75rem;
+}
+.matrix-row{
+  display:grid;grid-template-columns:120px 1fr;
+  gap:0;margin-bottom:0;
+}
+.matrix-row:not(:last-child) .mr-content{border-bottom:1px solid var(--line);}
+.mr-label{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--slate);padding:1rem 0;
+  border-right:1px solid var(--line);
+  padding-right:1.25rem;
+  display:flex;align-items:center;
+}
+.mr-content{
+  padding:1rem 0 1rem 1.5rem;
+  font-size:1rem;color:var(--ink);
+  line-height:1.55;
+}
+.mr-content em{font-style:italic;color:var(--rose);font-weight:600;}
+
+/* ── EXTRA EXAMPLES ──────────────────────────────── */
+.ex-box{
+  background:#f7f7f7;
+  border:1px solid #e0e0e0;
+  border-radius:12px;
+  padding:1.5rem;
+  margin-bottom:1.75rem;
+}
+.ex-box h4{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;color:#111111;margin-bottom:1rem;
+}
+.ex-pair{margin-bottom:1rem;}
+.ex-pair:last-child{margin-bottom:0;}
+.ex-bad{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.93rem;color:#a00050;margin-bottom:0.3rem;}
+.ex-good{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.93rem;color:#111111;}
+.ex-tag{
+  font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  padding:0.15rem 0.5rem;border-radius:4px;white-space:nowrap;margin-top:0.1rem;flex-shrink:0;
+}
+.ex-tag.bad{background:#fce8f3;color:#a00050;border:1px solid #f0b8d8;}
+.ex-tag.good{background:#f4f4f4;color:#111111;border:1px solid #cccccc;}
+.ex-note{font-size:0.82rem;color:var(--slate);margin-top:0.25rem;padding-left:1.3rem;font-style:italic;}
+
+/* ── QUIZ ────────────────────────────────────────── */
+.quiz{
+  background:var(--white);border-radius:18px;padding:2.5rem;
+  box-shadow:0 8px 40px rgba(26,26,46,0.1);
+  scroll-margin-top:64px;
+}
+.quiz-hd{
+  display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+  margin-bottom:2.25rem;
+}
+.quiz-title{
+  font-family:'DM Serif Display',serif;
+  font-size:2.4rem;color:var(--ink);letter-spacing:-0.01em;
+}
+.quiz-title span{color:var(--rose);}
+.score-badge{
+  background:var(--rose-pale);color:var(--rose);font-size:0.9rem;
+  font-weight:700;font-size:0.82rem;
+  padding:0.4rem 1rem;border-radius:6px;white-space:nowrap;
+}
+
+.quiz-q{margin-bottom:2.25rem;padding-bottom:2.25rem;border-bottom:1px solid var(--line);}
+.quiz-q:last-of-type{border-bottom:none;}
+.q-num{font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);margin-bottom:0.5rem;}
+.q-text{font-size:1.08rem;font-weight:600;color:var(--ink);margin-bottom:1rem;line-height:1.5;}
+.q-opts{display:flex;flex-direction:column;gap:0.5rem;}
+.q-opt{
+  display:flex;align-items:flex-start;gap:0.75rem;
+  padding:0.9rem 1.1rem;
+  border-radius:9px;border:2px solid var(--line);
+  cursor:pointer;transition:all 0.18s;
+  font-size:0.96rem;color:var(--ink);
+  background:var(--bg);text-align:left;width:100%;
+  font-family:'DM Sans',sans-serif;
+}
+.q-opt:hover{border-color:var(--rose);background:var(--rose-pale);}
+.q-opt.correct{border-color:#111111;background:#f4f4f4;color:#111111;font-weight:700;}
+.q-opt.incorrect{border-color:var(--rose);background:var(--rose-pale);color:#8b0043;}
+.q-opt.disabled{cursor:default;}
+.opt-l{
+  min-width:24px;height:24px;background:var(--white);
+  border:1.5px solid var(--line);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.72rem;color:var(--slate);flex-shrink:0;
+}
+.q-opt.correct .opt-l{background:#111111;border-color:#111111;color:white;}
+.q-opt.incorrect .opt-l{background:var(--rose);border-color:var(--rose);color:white;}
+.q-fb{
+  margin-top:0.75rem;padding:0.8rem 1rem;border-radius:8px;
+  font-size:0.93rem;display:none;line-height:1.55;
+}
+.q-fb.show{display:block;}
+.q-fb.fb-ok{background:#f4f4f4;color:#111111;border:1px solid #cccccc;}
+.q-fb.fb-no{background:#fce8f3;color:#8b0043;border:1px solid #f0b8d8;}
+.q-fb strong{font-weight:700;}
+
+.quiz-actions{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;}
+.btn-reset{
+  background:var(--white);color:var(--rose);
+  border:2px solid var(--rose);font-size:0.95rem;
+  padding:0.7rem 1.6rem;border-radius:8px;
+  font-weight:700;font-size:0.88rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.18s;
+}
+.btn-reset:hover{background:var(--rose-pale);color:var(--rose);}
+
+.result{
+  display:none;
+  background:var(--ink);color:white;
+  border-radius:12px;padding:2rem;text-align:center;margin-top:2rem;
+}
+.result.show{display:block;}
+.res-score{
+  font-family:'DM Serif Display',serif;
+  font-size:3.5rem;color:var(--rose-light);letter-spacing:-0.02em;line-height:1;margin-bottom:0.5rem;
+}
+.res-msg{color:#cccccc;font-size:1.1rem;}
+
+/* ── BIBLIO ──────────────────────────────────────── */
+.biblio{list-style:none;display:flex;flex-direction:column;gap:0.75rem;}
+.biblio li{
+  background:var(--white);border-radius:9px;padding:0.85rem 1.25rem;
+  box-shadow:0 2px 8px rgba(26,26,46,0.06);font-size:0.86rem;color:var(--slate);
+  border-left:3px solid var(--rose);
+  font-size:0.93rem;
+}
+.biblio li strong{color:var(--ink);font-weight:700;}
+
+/* ── FOOTER ──────────────────────────────────────── */
+footer{
+  background:#111111;color:#888888;text-align:center;
+  padding:2rem;font-size:0.8rem;letter-spacing:0.02em;
+}
+footer strong{color:#8899aa;}
+
+/* ── ANIM ────────────────────────────────────────── */
+@keyframes up{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.sec,.quiz{animation:up 0.45s ease both;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Investigación en Enfermería</div>
+  <ul class="nav-links">
+    <li><a href="#pregunta">La pregunta</a></li>
+    <li><a href="#objetivos">Objetivos</a></li>
+    <li><a href="#bloom">Verbos Bloom</a></li>
+    <li><a href="#smart">SMART</a></li>
+    <li><a href="#hipotesis">Hipótesis</a></li>
+    <li><a href="#matriz">Matriz</a></li>
+    <li><a href="#practica">Práctica</a></li>
+  </ul>
+</nav>
+
+<!-- PROGRESS -->
+<div class="prog-strip">
+  <span class="prog-label">Progreso del cuestionario</span>
+  <div class="prog-track"><div class="prog-fill" id="pf"></div></div>
+  <span class="prog-pct" id="pp">0%</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Licenciatura en Enfermería</div>
+  <h1>Objetivos de Investigación<br>e <em>Hipótesis</em></h1>
+  <p class="hero-sub">Guía didáctica basada en Arias (2012), Hernández Sampieri (2014) y Pineda, Alvarado &amp; Canales (1994).</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Pregunta de investigación</span>
+    <span class="hero-tag">Objetivo general</span>
+    <span class="hero-tag">Objetivos específicos</span>
+    <span class="hero-tag">Taxonomía de Bloom</span>
+    <span class="hero-tag">Formato SMART</span>
+    <span class="hero-tag">Hipótesis</span>
+    <span class="hero-tag">Matriz de congruencia</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+
+<!-- ══════════════════════════════════════════════
+     BLOQUE 1 — LA PREGUNTA DE INVESTIGACIÓN
+══════════════════════════════════════════════ -->
+<div class="sec" id="pregunta">
+  <div class="sec-num">01</div>
+  <h2 class="sec-title">La <span>Pregunta</span> de Investigación</h2>
+  <p class="sec-lead">Antes de redactar los objetivos, el investigador debe formular una pregunta sólida que oriente todo el diseño teórico.</p>
+
+  <div class="def">
+    <div class="def-tag">Definición · Arias (2012) + OPS Pineda et al. (1994)</div>
+    <p class="def-body">Una pregunta bien formulada contiene <strong>cuatro elementos esenciales</strong>: las <strong>variables</strong> que se desean estudiar, la <strong>unidad de análisis</strong> (¿en quiénes?), el <strong>límite espacial</strong> (¿dónde?) y el <strong>límite temporal</strong> (¿cuándo?).</p>
+  </div>
+
+  <div class="formula">
+    <div class="formula-label">Fórmula de redacción</div>
+    <div class="formula-text">
+      ¿Cuál es la [<em>Relación / Impacto / Incidencia</em>] de la [<em>Variable A</em>]<br>
+      sobre la [<em>Variable B</em>] en [<em>Unidad de Análisis</em>]<br>
+      de [<em>Lugar</em>] durante [<em>Tiempo</em>]?
+    </div>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="fc-q">¿Qué mido?</div>
+        <div class="fc-title">Variables</div>
+        <div class="fc-ex">Clima laboral, nivel de estrés, calidad del cuidado, adherencia al tratamiento.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-q">¿En quiénes?</div>
+        <div class="fc-title">Unidad de análisis</div>
+        <div class="fc-ex">Personal de enfermería, pacientes postquirúrgicos, expedientes clínicos, cuidadores.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-q">¿Dónde?</div>
+        <div class="fc-title">Límite espacial</div>
+        <div class="fc-ex">Hospital "X", Unidad de Terapia Intensiva, Centro de Salud "Z", guardia de adultos.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-q">¿Cuándo?</div>
+        <div class="fc-title">Límite temporal</div>
+        <div class="fc-ex">Año 2025, primer semestre de 2024, temporada invernal, durante 6 meses.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ex-box">
+    <h4>Ejemplos comparativos de pregunta</h4>
+    <div class="ex-pair">
+      <div class="ex-bad"><span class="ex-tag bad">Incompleta</span> ¿El estrés afecta al trabajo del enfermero?</div>
+      <div class="ex-good"><span class="ex-tag good">Correcta</span> ¿Cuál es la relación entre el síndrome de Burnout y la tasa de errores en la administración de medicación en enfermeros de emergencias del Hospital X en 2025?</div>
+      <div class="ex-note">La versión correcta precisa: variable A (Burnout), variable B (errores), unidad de análisis (enfermeros de emergencias), lugar (Hospital X) y tiempo (2025).</div>
+    </div>
+    <div class="ex-pair">
+      <div class="ex-bad"><span class="ex-tag bad">Incompleta</span> ¿Los pacientes se caen mucho?</div>
+      <div class="ex-good"><span class="ex-tag good">Correcta</span> ¿Cuáles son los factores de riesgo extrínsecos asociados a caídas en pacientes de geriatría del Sanatorio Y durante el primer semestre de 2025?</div>
+      <div class="ex-note">El adverbio "mucho" no es medible. La versión correcta define la variable (factores de riesgo extrínsecos), la unidad (pacientes de geriatría), el lugar y el tiempo.</div>
+    </div>
+    <div class="ex-pair">
+      <div class="ex-bad"><span class="ex-tag bad">Incompleta</span> ¿Qué saben los enfermeros sobre higiene?</div>
+      <div class="ex-good"><span class="ex-tag good">Correcta</span> ¿Cuál es el impacto de una capacitación sobre higiene de manos en la incidencia de infecciones nosocomiales en la UTI del Hospital X en 2025?</div>
+      <div class="ex-note">"Saber sobre higiene" es demasiado amplio y sin delimitación espaciotemporal. La versión correcta incorpora los cuatro elementos de la fórmula.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BLOQUE 2 — OBJETIVOS
+══════════════════════════════════════════════ -->
+<div class="sec" id="objetivos">
+  <div class="sec-num">02</div>
+  <h2 class="sec-title">Los <span>Objetivos</span> de Investigación</h2>
+  <p class="sec-lead">Según Arias (2012), los objetivos son enunciados que expresan los aspectos que se desean indagar y conocer.</p>
+
+  <div class="def">
+    <div class="def-tag">Definición · Arias (2012)</div>
+    <p class="def-body">Los objetivos <strong>orientan la investigación hacia resultados concretos</strong>. En enfermería, deben apuntar a resolver problemas de la práctica clínica, gestión, docencia o cuidado. Se redactan siempre en <strong>infinitivo</strong> y deben ser <strong>medibles y observables</strong>.</p>
+  </div>
+
+  <div class="note">
+    <span class="note-mark">!</span>
+    <span>Un error frecuente es confundir objetivos con <strong>actividades</strong>. "Hacer una encuesta" es una actividad; <strong>"Identificar la frecuencia de..."</strong> es un objetivo. Los objetivos expresan un <em>logro</em>, no una tarea.</span>
+  </div>
+
+  <div class="obj-grid">
+    <div class="obj-card general">
+      <div class="obj-kind">Objetivo General</div>
+      <h4>La meta global del estudio</h4>
+      <div class="obj-item">
+        <div>Responde <strong>directamente</strong> a la pregunta de investigación. Abarca la totalidad del estudio.</div>
+      </div>
+      <div class="obj-item">
+        Usa verbos de <strong>alta complejidad cognitiva</strong>: Determinar, Evaluar, Analizar, Comparar, Establecer.
+      </div>
+      <div class="obj-item" style="border-left-color:var(--rose);font-style:italic;">
+        <strong>Ejemplo:</strong> Determinar la relación entre el clima laboral y la calidad del cuidado en la UTI del Hospital X en 2025.
+      </div>
+    </div>
+    <div class="obj-card especificos">
+      <div class="obj-kind">Objetivos Específicos</div>
+      <h4>Los pasos intermedios</h4>
+      <div class="obj-item">
+        <div class="obj-step">Paso 1 · Caracterización</div>
+        Describir el perfil sociodemográfico del personal de enfermería.
+      </div>
+      <div class="obj-item">
+        <div class="obj-step">Paso 2 · Diagnóstico</div>
+        Identificar las dimensiones del clima laboral predominantes.
+      </div>
+      <div class="obj-item">
+        <div class="obj-step">Paso 3 · Evaluación</div>
+        Evaluar el nivel de calidad del cuidado según la percepción del paciente.
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="note-mark">→</span>
+    <span>La <strong>sumatoria de los objetivos específicos</strong> debe dar como resultado el objetivo general. Si al sumarlos lógicamente no se llega al general, faltan pasos o sobran objetivos.</span>
+  </div>
+
+  <div class="ex-box">
+    <h4>Más ejemplos: redacción correcta e incorrecta</h4>
+    <div class="ex-pair">
+      <div class="ex-bad"><span class="ex-tag bad">Incorrecto</span> Hacer una encuesta a los enfermeros sobre el lavado de manos.</div>
+      <div class="ex-good"><span class="ex-tag good">Correcto</span> Evaluar el impacto de una capacitación sobre higiene de manos en la incidencia de infecciones nosocomiales en la UTI del Hospital X en 2025.</div>
+      <div class="ex-note">"Hacer una encuesta" es una actividad metodológica, no un objetivo. El verbo correcto ("Evaluar") expresa un resultado cognitivo medible.</div>
+    </div>
+    <div class="ex-pair">
+      <div class="ex-bad"><span class="ex-tag bad">Incorrecto</span> Ver si los pacientes diabéticos toman bien su medicación.</div>
+      <div class="ex-good"><span class="ex-tag good">Correcto</span> Evaluar la adherencia al tratamiento farmacológico en pacientes con hipertensión arterial seguidos por enfermería comunitaria en 2025.</div>
+      <div class="ex-note">"Ver si" no es un verbo técnico y "bien" es subjetivo. El objetivo correcto precisa la variable (adherencia), la unidad (pacientes con HTA), el contexto (enfermería comunitaria) y el tiempo.</div>
+    </div>
+    <div class="ex-pair">
+      <div class="ex-bad"><span class="ex-tag bad">Incorrecto</span> Saber cuántos enfermeros tienen burnout.</div>
+      <div class="ex-good"><span class="ex-tag good">Correcto</span> Identificar la frecuencia de síntomas ansioso-depresivos en enfermeros que trabajan en turnos rotativos nocturnos.</div>
+      <div class="ex-note">"Saber cuántos" carece de precisión técnica. El verbo "Identificar" con su variable (síntomas ansioso-depresivos) y unidad de análisis (turno rotativo nocturno) construye un objetivo operativo riguroso.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BLOQUE 3 — VERBOS BLOOM
+══════════════════════════════════════════════ -->
+<div class="sec" id="bloom">
+  <div class="sec-num">03</div>
+  <h2 class="sec-title">Verbos según la <span>Taxonomía de Bloom</span></h2>
+  <p class="sec-lead">La elección del verbo define el alcance y la profundidad del estudio. No es un detalle menor: un verbo incorrecto cambia toda la naturaleza del objetivo.</p>
+
+  <div class="def">
+    <div class="def-tag">Principio clave</div>
+    <p class="def-body">Bloom clasifica el pensamiento en niveles de <strong>menor a mayor complejidad cognitiva</strong>: recordar → comprender → aplicar → <strong>analizar → evaluar → crear</strong>. Los objetivos generales operan en los niveles más altos. Los específicos, en los operativos.</p>
+  </div>
+
+  <!-- TABLA COMPLETA VERBOS GENERALES -->
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:0.5rem;margin-top:0.5rem;">Verbos para <span style="color:var(--rose);">Objetivo General</span></h3>
+  <p style="font-size:0.95rem;color:var(--slate);margin-bottom:1.25rem;">Nivel alto de complejidad cognitiva. Expresan la meta global del estudio.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:160px;">Verbo</th>
+          <th>Qué implica</th>
+          <th>Ejemplo aplicado a enfermería</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Analizar</strong></td><td>Descomponer un fenómeno en sus partes e interpretar sus relaciones.</td><td>Analizar la relación entre el Burnout y los errores de medicación en enfermeros de guardia.</td></tr>
+        <tr><td><strong>Evaluar</strong></td><td>Emitir un juicio de valor fundamentado en criterios o estándares.</td><td>Evaluar el impacto de un programa educativo de higiene de manos en la incidencia de infecciones nosocomiales.</td></tr>
+        <tr><td><strong>Determinar</strong></td><td>Establecer con precisión la naturaleza, magnitud o relación de un fenómeno.</td><td>Determinar la prevalencia del síndrome de Burnout en enfermeros de UTI del Hospital X en 2025.</td></tr>
+        <tr><td><strong>Comparar</strong></td><td>Hallar semejanzas y diferencias entre dos o más grupos, variables o momentos.</td><td>Comparar el nivel de conocimientos sobre RCP antes y después de una capacitación en estudiantes de enfermería.</td></tr>
+        <tr><td><strong>Establecer</strong></td><td>Dejar sentada una relación, un hecho o una condición demostrada.</td><td>Establecer la incidencia de flebitis mecánica asociada al uso de catéteres venosos periféricos en pacientes oncológicos.</td></tr>
+        <tr><td><strong>Explicar</strong></td><td>Dar razón de un fenómeno, evidenciando sus causas o mecanismos.</td><td>Explicar los factores que determinan la rotación de personal de enfermería en servicios de alta complejidad.</td></tr>
+        <tr><td><strong>Formular</strong></td><td>Expresar de forma precisa y sistemática un protocolo, guía o propuesta.</td><td>Formular un protocolo de valoración de riesgo de caídas en adultos mayores institucionalizados.</td></tr>
+        <tr><td><strong>Generar</strong></td><td>Producir nuevos conocimientos o instrumentos a partir del análisis.</td><td>Generar un modelo de atención de enfermería para el seguimiento de pacientes con insuficiencia cardíaca en el primer nivel.</td></tr>
+        <tr><td><strong>Proponer</strong></td><td>Presentar una solución fundamentada a un problema identificado.</td><td>Proponer una guía de cuidados para la prevención de neumonía asociada a ventilación mecánica.</td></tr>
+        <tr><td><strong>Contrastar</strong></td><td>Oponer datos, teorías o grupos para evidenciar diferencias significativas.</td><td>Contrastar la efectividad del apósito hidrocoloide versus la gasa tradicional en el tratamiento de UPP grado II.</td></tr>
+        <tr><td><strong>Valorar</strong></td><td>Apreciar el grado, la importancia o el mérito de algo con criterio científico.</td><td>Valorar la calidad de vida de pacientes con ostomía de colon a los 6 meses post-intervención.</td></tr>
+        <tr><td><strong>Validar</strong></td><td>Comprobar que un instrumento, protocolo o intervención mide o funciona lo que dice.</td><td>Validar un instrumento de medición de sobrecarga del cuidador informal de adultos con Alzheimer.</td></tr>
+        <tr><td><strong>Investigar</strong></td><td>Indagar de forma sistemática sobre un fenómeno poco conocido.</td><td>Investigar las representaciones sociales del dolor crónico en mujeres adultas con fibromialgia atendidas en reumatología.</td></tr>
+        <tr><td><strong>Relacionar</strong></td><td>Establecer vínculos o asociaciones entre dos o más variables.</td><td>Relacionar el tipo de turno laboral con la calidad del sueño reportada por el personal de enfermería.</td></tr>
+        <tr><td><strong>Diseñar</strong></td><td>Planificar de forma estructurada un programa, intervención o instrumento.</td><td>Diseñar un programa de educación para la salud dirigido a pacientes diabéticos con riesgo de pie diabético.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TABLA COMPLETA VERBOS ESPECÍFICOS -->
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:0.5rem;margin-top:2.5rem;">Verbos para <span style="color:#111;">Objetivos Específicos</span></h3>
+  <p style="font-size:0.95rem;color:var(--slate);margin-bottom:1.25rem;">Nivel operativo. Expresan los pasos concretos y medibles para alcanzar el objetivo general.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:160px;">Verbo</th>
+          <th>Qué implica</th>
+          <th>Ejemplo aplicado a enfermería</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Identificar</strong></td><td>Reconocer y señalar elementos, factores o características específicas.</td><td>Identificar los factores de riesgo de caídas presentes en pacientes geriátricos hospitalizados.</td></tr>
+        <tr><td><strong>Describir</strong></td><td>Enumerar detalladamente las características de un fenómeno o grupo.</td><td>Describir el perfil sociodemográfico del personal de enfermería del servicio de cirugía.</td></tr>
+        <tr><td><strong>Clasificar</strong></td><td>Agrupar elementos según categorías, criterios o características comunes.</td><td>Clasificar los eventos adversos reportados según el tipo de error (medicación, caída, UPP, infección).</td></tr>
+        <tr><td><strong>Calcular</strong></td><td>Realizar operaciones matemáticas para obtener un valor o índice numérico.</td><td>Calcular la tasa de adherencia al tratamiento antihipertensivo en los pacientes de la muestra.</td></tr>
+        <tr><td><strong>Enumerar</strong></td><td>Hacer una lista ordenada de elementos o componentes.</td><td>Enumerar las intervenciones de enfermería aplicadas en el manejo del dolor postoperatorio.</td></tr>
+        <tr><td><strong>Interpretar</strong></td><td>Explicar el significado de datos, conductas o resultados obtenidos.</td><td>Interpretar las percepciones de las puérperas sobre la lactancia materna exclusiva.</td></tr>
+        <tr><td><strong>Distinguir</strong></td><td>Diferenciar rasgos o características entre elementos similares.</td><td>Distinguir las dimensiones del clima laboral con mayor y menor puntaje en el servicio.</td></tr>
+        <tr><td><strong>Registrar</strong></td><td>Anotar sistemáticamente los datos observados o recolectados.</td><td>Registrar la frecuencia de lavado de manos del personal en tres momentos de la jornada.</td></tr>
+        <tr><td><strong>Verificar</strong></td><td>Comprobar la exactitud o veracidad de un dato, hecho o procedimiento.</td><td>Verificar el cumplimiento del protocolo de bioseguridad en el manejo de residuos patogénicos.</td></tr>
+        <tr><td><strong>Detallar</strong></td><td>Exponer pormenorizadamente las características o componentes de algo.</td><td>Detallar las condiciones de trabajo del personal de enfermería en turnos rotativos nocturnos.</td></tr>
+        <tr><td><strong>Medir</strong></td><td>Cuantificar una variable mediante un instrumento o escala validada.</td><td>Medir el nivel de estrés laboral en enfermeros mediante la Escala de Estrés de Enfermería (NSS).</td></tr>
+        <tr><td><strong>Caracterizar</strong></td><td>Determinar los atributos y rasgos propios de un grupo o fenómeno.</td><td>Caracterizar a los cuidadores principales de pacientes con Alzheimer según edad, vínculo y años de cuidado.</td></tr>
+        <tr><td><strong>Sistematizar</strong></td><td>Organizar datos o hallazgos de manera lógica y coherente.</td><td>Sistematizar los registros de enfermería sobre intervenciones en el manejo del dolor.</td></tr>
+        <tr><td><strong>Recopilar</strong></td><td>Reunir datos, información o antecedentes de diversas fuentes.</td><td>Recopilar los antecedentes de caídas registrados en la historia clínica durante el último año.</td></tr>
+        <tr><td><strong>Señalar</strong></td><td>Indicar o apuntar hacia aspectos, elementos o hallazgos relevantes.</td><td>Señalar las barreras más frecuentes para la adherencia al lavado de manos en el personal.</td></tr>
+        <tr><td><strong>Estimar</strong></td><td>Aproximar el valor o magnitud de una variable a partir de los datos disponibles.</td><td>Estimar la frecuencia de accidentes corto-punzantes durante el reencapuchado de agujas.</td></tr>
+        <tr><td><strong>Reconocer</strong></td><td>Identificar y aceptar la presencia de un hecho, condición o patrón.</td><td>Reconocer los signos de alarma de sepsis identificados por el personal de enfermería en la guardia.</td></tr>
+        <tr><td><strong>Listar</strong></td><td>Presentar en forma de lista elementos concretos de un fenómeno.</td><td>Listar los materiales y recursos disponibles para la curación de heridas en el servicio de cirugía.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note">
+    <span class="note-mark">→</span>
+    <span>Si el objetivo general dice <em>"Identificar cuántas personas tienen hipertensión"</em>, el verbo está en un nivel bajo. Corresponde subirlo: <strong>"Determinar la prevalencia de hipertensión..."</strong> o <strong>"Analizar los factores asociados..."</strong></span>
+  </div>
+
+  <!-- EJEMPLOS COMPLETOS: general + específicos -->
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--ink);margin-bottom:0.5rem;margin-top:2.5rem;">Ejemplos completos: <span style="color:var(--rose);">General</span> + <span style="color:#111;">Específicos</span></h3>
+  <p style="font-size:0.95rem;color:var(--slate);margin-bottom:1.5rem;">Cada ejemplo muestra cómo el objetivo general se desglosa en objetivos específicos con sus verbos correspondientes.</p>
+
+  <div style="display:flex;flex-direction:column;gap:2rem;margin-bottom:1.75rem;">
+
+    <!-- EJEMPLO 1 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:#111;color:#fff;padding:1rem 1.5rem;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-light);margin-bottom:0.4rem;">Tema de investigación</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.15rem;">Burnout y errores de medicación en enfermería de emergencias</div>
+      </div>
+      <div style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="border-left:4px solid var(--rose);padding-left:1rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.3rem;">Objetivo General</div>
+          <div style="font-size:1rem;color:#111;line-height:1.6;"><strong style="color:var(--rose);">Analizar</strong> la relación entre el síndrome de Burnout y la frecuencia de errores en la administración de medicación en enfermeros del servicio de emergencias del Hospital X durante 2025.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;padding-left:0.5rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:0.1rem;">Objetivos Específicos</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Caracterizar</span> sociodemográficamente al personal de enfermería del servicio de emergencias.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Medir</span> el nivel de Burnout mediante el Inventario de Maslach (MBI) en los enfermeros de la muestra.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Registrar</span> la frecuencia de eventos adversos en la administración de medicación durante el período de estudio.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Identificar</span> la asociación estadística entre el nivel de Burnout y la frecuencia de errores registrados.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO 2 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:#111;color:#fff;padding:1rem 1.5rem;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-light);margin-bottom:0.4rem;">Tema de investigación</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.15rem;">Efectividad de una intervención educativa sobre higiene de manos</div>
+      </div>
+      <div style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="border-left:4px solid var(--rose);padding-left:1rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.3rem;">Objetivo General</div>
+          <div style="font-size:1rem;color:#111;line-height:1.6;"><strong style="color:var(--rose);">Evaluar</strong> el impacto de una capacitación sobre higiene de manos en la incidencia de infecciones nosocomiales en la UTI del Hospital X en 2025.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;padding-left:0.5rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:0.1rem;">Objetivos Específicos</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Describir</span> el perfil del personal de enfermería participante según antigüedad y formación previa en higiene de manos.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Registrar</span> la tasa de infecciones nosocomiales en la UTI durante los tres meses previos a la intervención.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Verificar</span> el cumplimiento del protocolo de higiene de manos antes y después de la capacitación mediante observación directa.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Comparar</span> la tasa de infecciones nosocomiales antes y después de la intervención educativa.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO 3 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:#111;color:#fff;padding:1rem 1.5rem;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-light);margin-bottom:0.4rem;">Tema de investigación</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.15rem;">Satisfacción laboral en enfermería de atención primaria</div>
+      </div>
+      <div style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="border-left:4px solid var(--rose);padding-left:1rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.3rem;">Objetivo General</div>
+          <div style="font-size:1rem;color:#111;line-height:1.6;"><strong style="color:var(--rose);">Determinar</strong> el nivel de satisfacción laboral del personal de enfermería en los centros de atención primaria de la zona sur durante 2025.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;padding-left:0.5rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:0.1rem;">Objetivos Específicos</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Caracterizar</span> al personal de enfermería según variables sociodemográficas: edad, sexo, antigüedad y tipo de contrato.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Medir</span> el nivel de satisfacción laboral utilizando la Escala de Satisfacción Laboral (SL-SPC).</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Identificar</span> las dimensiones de la satisfacción laboral (remuneración, condiciones, relaciones) con mayor y menor puntuación.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Relacionar</span> el nivel de satisfacción laboral con la antigüedad en el puesto y el tipo de contrato del enfermero.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO 4 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:#111;color:#fff;padding:1rem 1.5rem;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-light);margin-bottom:0.4rem;">Tema de investigación</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.15rem;">Caídas en pacientes adultos mayores hospitalizados</div>
+      </div>
+      <div style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="border-left:4px solid var(--rose);padding-left:1rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.3rem;">Objetivo General</div>
+          <div style="font-size:1rem;color:#111;line-height:1.6;"><strong style="color:var(--rose);">Establecer</strong> la incidencia de caídas en adultos mayores hospitalizados en el servicio de geriatría del Sanatorio Y durante el primer semestre de 2025.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;padding-left:0.5rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:0.1rem;">Objetivos Específicos</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Describir</span> las características clínicas y funcionales de los adultos mayores hospitalizados incluidos en el estudio.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Clasificar</span> las caídas registradas según turno, lugar de ocurrencia (baño, habitación, corredor) y consecuencias para el paciente.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Identificar</span> los factores de riesgo intrínsecos (medicación, movilidad, cognición) y extrínsecos (iluminación, calzado) asociados a las caídas.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Estimar</span> la tasa de caídas por 1000 días-paciente para cada servicio del Sanatorio Y durante el período estudiado.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EJEMPLO 5 -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);">
+      <div style="background:#111;color:#fff;padding:1rem 1.5rem;">
+        <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose-light);margin-bottom:0.4rem;">Tema de investigación</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:1.15rem;">Adherencia al tratamiento en pacientes diabéticos tipo 2</div>
+      </div>
+      <div style="padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:0.85rem;">
+        <div style="border-left:4px solid var(--rose);padding-left:1rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.3rem;">Objetivo General</div>
+          <div style="font-size:1rem;color:#111;line-height:1.6;"><strong style="color:var(--rose);">Evaluar</strong> la adherencia al tratamiento farmacológico y no farmacológico en pacientes con diabetes tipo 2 controlados por enfermería comunitaria en el Centro de Salud Z durante 2025.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;padding-left:0.5rem;">
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#555;margin-bottom:0.1rem;">Objetivos Específicos</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Describir</span> las características sociodemográficas y clínicas de los pacientes diabéticos incluidos (edad, años de diagnóstico, HbA1c).</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Medir</span> el grado de adherencia farmacológica mediante el Test de Morisky-Green y la adherencia no farmacológica mediante encuesta estructurada.</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Identificar</span> las barreras referidas por los pacientes para el cumplimiento del tratamiento (económicas, culturales, de acceso al sistema).</div>
+          <div style="background:#f7f7f7;border-radius:8px;padding:0.7rem 1rem;font-size:0.93rem;border-left:3px solid #ccc;"><span style="color:#111;font-weight:700;">Relacionar</span> el nivel de adherencia con los valores de hemoglobina glicosilada (HbA1c) al inicio y al final del período de estudio.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /ejemplos completos -->
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BLOQUE 4 — OBJETIVOS SMART + 20 EJEMPLOS
+══════════════════════════════════════════════ -->
+<div class="sec" id="smart">
+  <div class="sec-num">04</div>
+  <h2 class="sec-title">Objetivos en <span>Formato SMART</span></h2>
+  <p class="sec-lead">Un objetivo SMART es Específico, Medible, Alcanzable, Relevante y Temporalizado. Es el estándar de calidad en investigación científica.</p>
+
+  <div class="smart-def">
+    <div class="smart-letter">
+      <div class="sl-letter">S</div>
+      <div class="sl-word">Specific</div>
+      <div class="sl-desc">Específico: define claramente qué se va a estudiar y en quiénes.</div>
+    </div>
+    <div class="smart-letter">
+      <div class="sl-letter">M</div>
+      <div class="sl-word">Measurable</div>
+      <div class="sl-desc">Medible: la variable puede cuantificarse o categorizarse.</div>
+    </div>
+    <div class="smart-letter">
+      <div class="sl-letter">A</div>
+      <div class="sl-word">Achievable</div>
+      <div class="sl-desc">Alcanzable: factible con los recursos y el tiempo disponibles.</div>
+    </div>
+    <div class="smart-letter">
+      <div class="sl-letter">R</div>
+      <div class="sl-word">Relevant</div>
+      <div class="sl-desc">Relevante: pertinente para la práctica de enfermería y la salud.</div>
+    </div>
+    <div class="smart-letter">
+      <div class="sl-letter">T</div>
+      <div class="sl-word">Time-bound</div>
+      <div class="sl-desc">Temporalizado: indica el período de tiempo del estudio.</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:1rem;">20 ejemplos de objetivos SMART en enfermería</h3>
+
+  <div class="smart-grid">
+    <div class="smart-item"><strong>Evaluar</strong> el impacto de una capacitación sobre higiene de manos en la incidencia de infecciones nosocomiales en la UTI del Hospital X en 2025.</div>
+    <div class="smart-item"><strong>Identificar</strong> los factores de riesgo extrínsecos asociados a caídas en pacientes de geriatría del Sanatorio Y durante el primer semestre de 2025.</div>
+    <div class="smart-item"><strong>Determinar</strong> el nivel de satisfacción laboral del personal de enfermería en centros de atención primaria de la zona sur durante 2024.</div>
+    <div class="smart-item"><strong>Analizar</strong> la relación entre el síndrome de Burnout y la tasa de errores en la administración de medicación en enfermeros de emergencias en 2025.</div>
+    <div class="smart-item"><strong>Describir</strong> las intervenciones de enfermería más frecuentes en el manejo del dolor postoperatorio en niños de 5 a 12 años en el Hospital Pediátrico.</div>
+    <div class="smart-item"><strong>Comparar</strong> la efectividad del parche hidrocoloide vs. gasa tradicional en la curación de UPP grado II en pacientes encamados durante 6 meses.</div>
+    <div class="smart-item"><strong>Establecer</strong> la prevalencia de automedicación en adultos jóvenes que asisten a la consulta externa de enfermería en el Centro de Salud Z.</div>
+    <div class="smart-item"><strong>Validar</strong> un protocolo de triaje de enfermería para reducir el tiempo de espera en la guardia de adultos durante la temporada invernal.</div>
+    <div class="smart-item"><strong>Interpretar</strong> las percepciones de las madres sobre la lactancia materna exclusiva en el puerperio inmediato en una maternidad pública.</div>
+    <div class="smart-item"><strong>Calcular</strong> el tiempo promedio invertido por el enfermero en tareas administrativas vs. atención directa al paciente en salas de medicina interna.</div>
+    <div class="smart-item"><strong>Evaluar</strong> la adherencia al tratamiento farmacológico en pacientes con hipertensión arterial seguidos por enfermería comunitaria en 2025.</div>
+    <div class="smart-item"><strong>Identificar</strong> las barreras culturales que dificultan el control prenatal en mujeres migrantes atendidas por enfermeras rurales.</div>
+    <div class="smart-item"><strong>Determinar</strong> la eficacia de un taller de manejo de ostomías en la calidad de vida de pacientes recién intervenidos.</div>
+    <div class="smart-item"><strong>Analizar</strong> el cumplimiento de la Ley de Bioseguridad por parte del personal de enfermería en el manejo de residuos patogénicos.</div>
+    <div class="smart-item"><strong>Describir</strong> el perfil sociodemográfico y nivel de sobrecarga del cuidador principal de pacientes con Alzheimer.</div>
+    <div class="smart-item"><strong>Establecer</strong> la incidencia de flebitis mecánica asociada al uso de catéteres venosos periféricos en pacientes oncológicos.</div>
+    <div class="smart-item"><strong>Comparar</strong> el nivel de conocimientos sobre RCP básico antes y después de una intervención educativa en estudiantes de enfermería.</div>
+    <div class="smart-item"><strong>Evaluar</strong> el estado nutricional de pacientes pediátricos hospitalizados por más de 7 días mediante indicadores antropométricos.</div>
+    <div class="smart-item"><strong>Identificar</strong> la frecuencia de síntomas ansioso-depresivos en enfermeros que trabajan en turnos rotativos nocturnos.</div>
+    <div class="smart-item"><strong>Proponer</strong> una guía de cuidados de enfermería para la prevención de neumonía asociada a ventilación mecánica.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BLOQUE 5 — HIPÓTESIS
+══════════════════════════════════════════════ -->
+<div class="sec" id="hipotesis">
+  <div class="sec-num">05</div>
+  <h2 class="sec-title">Las <span>Hipótesis</span> de Investigación</h2>
+  <p class="sec-lead">Hernández Sampieri (2014) las define como "explicaciones tentativas del fenómeno investigado que se formulan como proposiciones". Yuni y Urbano (2006) señalan que la hipótesis es el puente entre la teoría y la realidad empírica.</p>
+
+  <div class="def">
+    <div class="def-tag">Características de una buena hipótesis</div>
+    <p class="def-body">Debe tener <strong>referencia real</strong> (contexto de práctica de enfermería), <strong>variables precisas</strong> (concretas y medibles), <strong>lógica</strong> (sustento teórico) y <strong>verificabilidad</strong> (probables mediante datos).</p>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--ink);margin-bottom:1rem;">Tipos de hipótesis con 20 ejemplos</h3>
+
+  <div class="smart-grid">
+    <div class="smart-item"><strong>Causal:</strong> El uso de apósitos de plata reduce el tiempo de cicatrización de heridas quirúrgicas infectadas en un 30%.</div>
+    <div class="smart-item"><strong>Correlacional:</strong> A mayor nivel de estrés laboral, menor es la calidad del registro de enfermería en la hoja de evolución.</div>
+    <div class="smart-item"><strong>Descriptiva:</strong> El 80% de los enfermeros de la UTI poseen especialización o postgrado en cuidados críticos.</div>
+    <div class="smart-item"><strong>Diferencia de grupos:</strong> Los pacientes que reciben educación prequirúrgica presentan menores niveles de ansiedad que quienes no la reciben.</div>
+    <div class="smart-item"><strong>Causal:</strong> La implementación de pausas activas durante el turno reduce la frecuencia de dolores lumbares en el personal.</div>
+    <div class="smart-item"><strong>Correlacional:</strong> Existe una relación positiva entre el apoyo social percibido y la adherencia al tratamiento en pacientes diabéticos.</div>
+    <div class="smart-item"><strong>Nula (H₀):</strong> No hay diferencia significativa en la incidencia de caídas entre el turno mañana y el turno noche.</div>
+    <div class="smart-item"><strong>Causal:</strong> El lavado de manos con clorhexidina al 2% es más efectivo que el jabón común para reducir la flora transitoria.</div>
+    <div class="smart-item"><strong>Descriptiva:</strong> La prevalencia de tabaquismo en estudiantes de enfermería de último año es superior al 40%.</div>
+    <div class="smart-item"><strong>Correlacional:</strong> Cuanto mayor es el número de pacientes asignados por enfermero, mayor es la incidencia de eventos adversos.</div>
+    <div class="smart-item"><strong>Diferencia de grupos:</strong> El nivel de conocimiento sobre cuidados paliativos es mayor en enfermeros con más de 10 años de experiencia.</div>
+    <div class="smart-item"><strong>Causal:</strong> El uso de musicoterapia durante la hemodiálisis disminuye los niveles de presión arterial sistólica de los pacientes.</div>
+    <div class="smart-item"><strong>Descriptiva:</strong> El tiempo de respuesta de enfermería ante el llamado del timbre es menor a 3 minutos en el 90% de los casos.</div>
+    <div class="smart-item"><strong>Correlacional:</strong> La satisfacción del paciente está directamente relacionada con la comunicación empática del enfermero.</div>
+    <div class="smart-item"><strong>Causal:</strong> La aplicación de calor local antes de la punción venosa aumenta la tasa de éxito al primer intento.</div>
+    <div class="smart-item"><strong>Nula (H₀):</strong> El género del enfermero no influye en la percepción de cuidado humanizado por parte del paciente.</div>
+    <div class="smart-item"><strong>Correlacional:</strong> El nivel de competencias digitales se asocia negativamente con la edad cronológica del profesional.</div>
+    <div class="smart-item"><strong>Descriptiva:</strong> La mayoría de los accidentes corto-punzantes en enfermería ocurren durante el reencapuchado de agujas.</div>
+    <div class="smart-item"><strong>Causal:</strong> Un programa de mentoría para enfermeros noveles reduce la rotación de personal en el primer año de empleo.</div>
+    <div class="smart-item"><strong>Correlacional:</strong> Existe una asociación entre el tipo de turno laboral y la calidad del sueño reportada por el personal.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     BLOQUE 6 — MATRIZ DE CONGRUENCIA
+══════════════════════════════════════════════ -->
+<div class="sec" id="matriz">
+  <div class="sec-num">06</div>
+  <h2 class="sec-title">Matriz de <span>Congruencia</span></h2>
+  <p class="sec-lead">La validez interna de la tesis depende de la coherencia entre el problema, el objetivo y la hipótesis. Este triángulo debe ser perfecto.</p>
+
+  <div class="def">
+    <div class="def-tag">Principio de coherencia interna</div>
+    <p class="def-body">La <strong>pregunta de investigación</strong>, el <strong>objetivo general</strong> y la <strong>hipótesis</strong> deben referirse exactamente a los mismos elementos: misma variable, misma unidad de análisis, mismo lugar y mismo tiempo. Si cualquiera de ellos difiere, hay una <strong>ruptura de congruencia</strong>.</p>
+  </div>
+
+  <div class="matrix">
+    <div class="matrix-row">
+      <div class="mr-label">Pregunta</div>
+      <div class="mr-content"><em>¿Cuál es la relación entre el clima laboral y la calidad del cuidado en la UTI del Hospital X en 2025?</em></div>
+    </div>
+    <div class="matrix-row">
+      <div class="mr-label">Objetivo general</div>
+      <div class="mr-content">Determinar la <em>relación entre el clima laboral y la calidad del cuidado</em> en la UTI del Hospital X en 2025.</div>
+    </div>
+    <div class="matrix-row">
+      <div class="mr-label">Hipótesis</div>
+      <div class="mr-content">Un <em>clima laboral positivo</em> se asocia significativamente con una <em>alta calidad en el cuidado</em> de enfermería.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="note-mark">→</span>
+    <span>Notá que los tres elementos comparten las mismas <strong>dos variables</strong> (clima laboral / calidad del cuidado) y el mismo <strong>contexto</strong>. Si el objetivo cambiara a "calidad de vida", la matriz quebraría su coherencia interna.</span>
+  </div>
+
+  <div class="ex-box">
+    <h4>Segundo ejemplo completo de matriz</h4>
+    <div class="ex-pair">
+      <div class="ex-good"><span class="ex-tag good">Pregunta</span> ¿Cuál es la relación entre el síndrome de Burnout y la tasa de errores en la administración de medicación en enfermeros de emergencias en 2025?</div>
+    </div>
+    <div class="ex-pair">
+      <div class="ex-good"><span class="ex-tag good">Objetivo</span> Analizar la relación entre el síndrome de Burnout y la tasa de errores en la administración de medicación en enfermeros de emergencias en 2025.</div>
+    </div>
+    <div class="ex-pair">
+      <div class="ex-good"><span class="ex-tag good">Hipótesis</span> A mayor nivel de Burnout, mayor es la frecuencia de errores en la administración de medicación en los enfermeros de emergencias.</div>
+      <div class="ex-note">Las tres partes refieren al mismo fenómeno (Burnout → errores), la misma unidad (enfermeros de emergencias) y el mismo período.</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ink);margin-bottom:1rem;">Bibliografía de referencia</h3>
+  <ul class="biblio">
+    <li><strong>Arias, F. G. (2012).</strong> El Proyecto de Investigación. Introducción a la metodología científica. Episteme.</li>
+    <li><strong>Hernández Sampieri, R. (2014).</strong> Metodología de la Investigación (6ª ed.). McGraw-Hill.</li>
+    <li><strong>Pineda, E. B., Alvarado, E. L., &amp; Canales, F. H. (1994).</strong> Metodología de la investigación: Manual para el desarrollo de personal de salud. OPS.</li>
+    <li><strong>Yuni, J. A., &amp; Urbano, C. A. (2006).</strong> Técnicas para investigar: Recursos metodológicos para la preparación de proyectos de investigación. Editorial Brujas.</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     QUIZ
+══════════════════════════════════════════════ -->
+<div class="quiz" id="practica">
+  <div class="quiz-hd">
+    <div>
+      <div class="q-num">Zona de práctica</div>
+      <h2 class="quiz-title">¿Cuánto <span>aprendiste</span>?</h2>
+    </div>
+    <div class="score-badge" id="sb">0 / 12 correctas</div>
+  </div>
+
+  <!-- P1 -->
+  <div class="quiz-q" data-ans="c">
+    <div class="q-num">Pregunta 1 · La pregunta de investigación</div>
+    <div class="q-text">¿Cuáles son los cuatro elementos esenciales que debe contener una pregunta de investigación según Arias (2012) y la OPS?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Título, introducción, objetivos e hipótesis.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Variable independiente, variable dependiente, método y resultados.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Variables, unidad de análisis, límite espacial y límite temporal.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Objetivo general, objetivos específicos, hipótesis y bibliografía.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> Los cuatro elementos son: variables (¿qué mido?), unidad de análisis (¿en quiénes?), límite espacial (¿dónde?) y límite temporal (¿cuándo?). Toda pregunta bien formulada los incluye.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es C. Según Arias (2012) y la OPS, los cuatro elementos esenciales son: variables, unidad de análisis, límite espacial y límite temporal.</div>
+  </div>
+
+  <!-- P2 -->
+  <div class="quiz-q" data-ans="b">
+    <div class="q-num">Pregunta 2 · Objetivo General</div>
+    <div class="q-text">¿Cuál de las siguientes es la característica principal de un objetivo general?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Describe los pasos intermedios de la investigación.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Responde directamente a la pregunta de investigación y usa verbos de alta complejidad cognitiva.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Puede cambiar variables respecto a la pregunta si el investigador lo considera necesario.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Debe ser idéntico a la hipótesis de la investigación.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> El objetivo general responde directamente a la pregunta y se redacta con verbos de alta complejidad cognitiva (Determinar, Evaluar, Analizar, Comparar). No es idéntico a la hipótesis: el objetivo indica qué se busca; la hipótesis propone una respuesta tentativa.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es B. El objetivo general debe responder directamente a la pregunta de investigación y emplear verbos de alto nivel según Bloom (Determinar, Evaluar, Analizar, etc.).</div>
+  </div>
+
+  <!-- P3 -->
+  <div class="quiz-q" data-ans="d">
+    <div class="q-num">Pregunta 3 · Objetivos Específicos</div>
+    <div class="q-text">¿Cuál afirmación sobre los objetivos específicos es correcta según Pineda, Alvarado y Canales (1994)?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Siempre deben ser exactamente tres.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Describen las actividades metodológicas del investigador (encuestar, entrevistar).</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Son independientes entre sí y del objetivo general.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Son los pasos intermedios y lógicos cuya sumatoria debe dar como resultado el objetivo general.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> Pineda et al. señalan que los objetivos específicos se desgajan del general de modo que cada uno apunte a una dimensión o fase del problema. Su sumatoria lógica debe equivaler al objetivo general.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es D. Los objetivos específicos no son actividades ni son independientes: son los pasos intermedios que, sumados lógicamente, dan por resultado el objetivo general.</div>
+  </div>
+
+  <!-- P4 -->
+  <div class="quiz-q" data-ans="a">
+    <div class="q-num">Pregunta 4 · Verbos Bloom — Nivel del verbo</div>
+    <div class="q-text">Un estudiante redacta este objetivo general: <em>"Identificar cuántos enfermeros presentan Burnout en la UTI"</em>. ¿Cuál es el problema metodológico?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> El verbo "Identificar" es de bajo nivel cognitivo; para un objetivo general corresponde usar "Determinar" o "Analizar".</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> No menciona el año del estudio.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> El objetivo no puede referirse al Burnout.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> No hay ningún problema; el objetivo está bien redactado.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> "Identificar" es un verbo operativo (nivel bajo-medio de Bloom), adecuado para objetivos específicos. El objetivo general requiere verbos de mayor alcance: Determinar la prevalencia de Burnout / Analizar los factores asociados al Burnout.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es A. "Identificar" es un verbo de nivel operativo, apropiado para objetivos específicos. Los objetivos generales requieren verbos de alta complejidad cognitiva según la Taxonomía de Bloom.</div>
+  </div>
+
+  <!-- P5 -->
+  <div class="quiz-q" data-ans="c">
+    <div class="q-num">Pregunta 5 · Formato SMART</div>
+    <div class="q-text">¿Qué significa la letra "T" en el acrónimo SMART?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Técnico: el objetivo debe redactarse con terminología científica.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Teórico: debe estar fundamentado en bibliografía.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Time-bound: el objetivo debe indicar el período de tiempo del estudio.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Total: el objetivo debe abarcar todas las variables del estudio.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> "T" es Time-bound (Temporalizado). El objetivo debe indicar el período que abarca el estudio (ej. "en 2025", "durante el primer semestre de 2024"). Sin esa delimitación temporal, el objetivo no es SMART.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es C. "T" significa Time-bound (Temporalizado): el objetivo debe incluir el período de tiempo del estudio.</div>
+  </div>
+
+  <!-- P6 -->
+  <div class="quiz-q" data-ans="b">
+    <div class="q-num">Pregunta 6 · Objetivo vs. actividad</div>
+    <div class="q-text">¿Cuál de las siguientes opciones es un objetivo correctamente redactado y NO una actividad?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Realizar una encuesta sobre el nivel de estrés de los enfermeros.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Determinar el nivel de satisfacción laboral del personal de enfermería en centros de atención primaria de la zona sur durante 2024.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Ver si los pacientes hipertensos toman bien su medicación.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Hablar con los enfermeros sobre sus condiciones laborales.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> La opción B está en infinitivo (Determinar), especifica la variable (satisfacción laboral), la unidad de análisis (personal de enfermería), el lugar (centros de atención primaria de la zona sur) y el tiempo (2024). Las otras opciones son actividades o usan lenguaje impreciso.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es B. "Realizar una encuesta" y "Hablar con los enfermeros" son actividades. "Ver si... bien" usa lenguaje impreciso. Solo B tiene los componentes de un objetivo técnico.</div>
+  </div>
+
+  <!-- P7 -->
+  <div class="quiz-q" data-ans="d">
+    <div class="q-num">Pregunta 7 · Hipótesis</div>
+    <div class="q-text">Según Hernández Sampieri (2014), ¿qué son las hipótesis de investigación?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Afirmaciones definitivas sobre los resultados de la investigación.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Sinónimos del objetivo general redactados de forma diferente.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Actividades previas que el investigador debe cumplir antes de iniciar el estudio.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Explicaciones tentativas del fenómeno investigado que se formulan como proposiciones.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> Sampieri define las hipótesis como "explicaciones tentativas del fenómeno investigado que se formulan como proposiciones". Son tentativas porque aún no han sido verificadas; la investigación justamente busca confirmarlas o refutarlas.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es D. Las hipótesis no son afirmaciones definitivas ni son equivalentes al objetivo. Son proposiciones tentativas que la investigación pondrá a prueba.</div>
+  </div>
+
+  <!-- P8 -->
+  <div class="quiz-q" data-ans="a">
+    <div class="q-num">Pregunta 8 · Tipos de hipótesis</div>
+    <div class="q-text">La hipótesis <em>"A mayor nivel de estrés laboral, menor es la calidad del registro de enfermería"</em> es de tipo…</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Correlacional.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Causal.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Nula.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Descriptiva.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> Es correlacional porque establece una relación entre dos variables (estrés y calidad del registro) sin afirmar que una causa a la otra. La correlación puede ser positiva (ambas suben juntas) o negativa (una sube, la otra baja), como en este caso.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es A. Una hipótesis causal afirmaría que el estrés "provoca" o "genera" el error. Esta hipótesis solo propone una relación de sentido inverso entre las dos variables, lo que la hace correlacional.</div>
+  </div>
+
+  <!-- P9 -->
+  <div class="quiz-q" data-ans="c">
+    <div class="q-num">Pregunta 9 · Hipótesis nula</div>
+    <div class="q-text">¿Qué afirma una hipótesis nula (H₀)?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Que la variable independiente sí produce un efecto significativo en la variable dependiente.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Que no se puede realizar la investigación por falta de recursos.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Que no existe diferencia significativa entre los grupos o variables estudiados.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Que los objetivos no pueden alcanzarse con el diseño propuesto.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> La hipótesis nula (H₀) postula que no existe diferencia significativa o relación entre las variables. Por ejemplo: "No hay diferencia significativa en la incidencia de caídas entre el turno mañana y el turno noche." El análisis estadístico busca rechazarla o confirmarla.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es C. La hipótesis nula afirma la ausencia de diferencia o relación. Es una posición de neutralidad estadística que el estudio pone a prueba.</div>
+  </div>
+
+  <!-- P10 -->
+  <div class="quiz-q" data-ans="b">
+    <div class="q-num">Pregunta 10 · Matriz de congruencia</div>
+    <div class="q-text">¿Cuál de estos conjuntos pregunta–objetivo–hipótesis tiene correcta congruencia interna?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Pregunta: ¿Cuál es la relación entre Burnout y errores? · Objetivo: Describir el perfil del enfermero. · Hipótesis: El Burnout aumenta los errores.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Pregunta: ¿Cuál es la relación entre el clima laboral y la calidad del cuidado? · Objetivo: Determinar la relación entre el clima laboral y la calidad del cuidado. · Hipótesis: Un clima laboral positivo se asocia con alta calidad del cuidado.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Pregunta: ¿Cuál es la prevalencia de UPP? · Objetivo: Evaluar la satisfacción del paciente. · Hipótesis: Las UPP son causadas por falta de movilización.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Pregunta: ¿Cómo influye el turno nocturno en el personal? · Objetivo: Analizar el turno diurno en los enfermeros. · Hipótesis: No hay diferencia entre turnos.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> En la opción B, los tres elementos refieren a las mismas variables (clima laboral / calidad del cuidado), en el mismo contexto. Eso es congruencia interna perfecta. En los demás casos, las variables o el foco cambian entre las partes.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es B. En A el objetivo cambia el foco (perfil del enfermero ≠ relación Burnout-errores). En C, el objetivo no refiere a las UPP. En D, el objetivo habla del turno diurno cuando la pregunta es sobre el nocturno.</div>
+  </div>
+
+  <!-- P11 -->
+  <div class="quiz-q" data-ans="d">
+    <div class="q-num">Pregunta 11 · Verbos Bloom — Identificación</div>
+    <div class="q-text">Un investigador quiere estudiar si existe diferencia en el nivel de conocimiento sobre cuidados paliativos entre enfermeros novatos y experimentados. ¿Qué verbo de Bloom corresponde mejor al objetivo general?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Registrar.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Enumerar.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Describir.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Comparar.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> Cuando se busca hallar semejanzas y diferencias entre grupos, el verbo es <strong>Comparar</strong>. Es un verbo de nivel alto según Bloom, adecuado para un objetivo general que involucra dos grupos (novatos vs. experimentados). "Registrar", "Enumerar" y "Describir" son verbos operativos de nivel bajo.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es D: Comparar. Cuando el estudio busca hallar diferencias entre dos grupos, el verbo de Bloom adecuado es Comparar (nivel alto). Los otros verbos son operativos de nivel bajo, propios de los objetivos específicos.</div>
+  </div>
+
+  <!-- P12 -->
+  <div class="quiz-q" data-ans="a">
+    <div class="q-num">Pregunta 12 · Integración</div>
+    <div class="q-text">¿Cuál de los siguientes conjuntos respeta la Matriz de Congruencia Y usa un verbo SMART correcto para el objetivo general?</div>
+    <div class="q-opts">
+      <button class="q-opt" onclick="ans(this,'a')"><span class="opt-l">A</span> Pregunta: ¿Cuál es el impacto de la capacitación sobre higiene de manos en las infecciones nosocomiales en la UTI en 2025? · Objetivo: Evaluar el impacto de la capacitación sobre higiene de manos en las infecciones nosocomiales en la UTI en 2025. · Hipótesis: La capacitación reduce en al menos un 20% la tasa de infecciones nosocomiales.</button>
+      <button class="q-opt" onclick="ans(this,'b')"><span class="opt-l">B</span> Pregunta: ¿Cuántos enfermeros tienen estrés? · Objetivo: Analizar la relación entre el estrés y los errores de medicación. · Hipótesis: El estrés produce errores.</button>
+      <button class="q-opt" onclick="ans(this,'c')"><span class="opt-l">C</span> Pregunta: ¿Cómo es la atención en la guardia? · Objetivo: Describir la atención en la guardia. · Hipótesis: La atención es buena.</button>
+      <button class="q-opt" onclick="ans(this,'d')"><span class="opt-l">D</span> Pregunta: ¿Qué piensan los enfermeros del trabajo? · Objetivo: Proponer mejoras laborales. · Hipótesis: Los enfermeros están insatisfechos.</button>
+    </div>
+    <div class="q-fb fb-ok"><strong>Correcto.</strong> La opción A cumple todo: las tres partes refieren al mismo fenómeno (capacitación → infecciones nosocomiales, UTI, 2025), el verbo "Evaluar" es de alto nivel según Bloom, y la hipótesis es verificable y cuantificada ("al menos un 20%"). Es un ejemplo de congruencia perfecta y formato SMART.</div>
+    <div class="q-fb fb-no"><strong>Incorrecto.</strong> La respuesta correcta es A. En B, la pregunta y el objetivo no hablan de lo mismo. En C, "buena" es subjetivo y no medible. En D, el objetivo propone mejoras antes de haber investigado el problema (error metodológico clásico).</div>
+  </div>
+
+  <div class="quiz-actions">
+    <button class="btn-reset" onclick="reset()">Reiniciar práctica</button>
+  </div>
+  <div class="result" id="res">
+    <div class="res-score" id="rs">0/12</div>
+    <div class="res-msg" id="rm"></div>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  Guía Metodológica · Licenciatura en Enfermería<br>
+  <strong>Arias (2012) · Hernández Sampieri (2014) · Pineda, Alvarado &amp; Canales (1994) · Yuni &amp; Urbano (2006)</strong>
+</footer>
+
+<script>
+let score=0,answered=0;
+const total=12;
+
+function ans(btn,choice){
+  const q=btn.closest('.quiz-q');
+  if(q.dataset.done) return;
+  q.dataset.done='true';
+  const correct=q.dataset.ans;
+  q.querySelectorAll('.q-opt').forEach(o=>{o.classList.add('disabled');o.onclick=null;});
+  if(choice===correct){
+    btn.classList.add('correct');
+    q.querySelector('.fb-ok').classList.add('show');
+    score++;
+  } else {
+    btn.classList.add('incorrect');
+    q.querySelector('.fb-no').classList.add('show');
+    q.querySelectorAll('.q-opt').forEach(o=>{
+      if(o.querySelector('.opt-l').textContent.toLowerCase()===correct) o.classList.add('correct');
+    });
+  }
+  answered++;
+  document.getElementById('sb').textContent=score+' / '+answered+' correctas';
+  const pct=Math.round((answered/total)*100);
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pp').textContent=pct+'%';
+  if(answered===total){
+    const res=document.getElementById('res');
+    res.classList.add('show');
+    document.getElementById('rs').textContent=score+'/'+total;
+    const msg=score>=11?'Excelente. Dominás los conceptos del diseño teórico.':
+      score>=9?'Muy bien. Repasá los bloques donde fallaste.':
+      score>=7?'Regular. Volvé a leer los bloques y reintentá.':
+      'Necesitás repasar el contenido. Cada intento suma.';
+    document.getElementById('rm').textContent=msg;
+  }
+}
+
+function reset(){
+  score=0;answered=0;
+  document.getElementById('sb').textContent='0 / 12 correctas';
+  document.getElementById('pf').style.width='0%';
+  document.getElementById('pp').textContent='0%';
+  document.getElementById('res').classList.remove('show');
+  document.querySelectorAll('.quiz-q').forEach(q=>{
+    delete q.dataset.done;
+    q.querySelectorAll('.q-opt').forEach(o=>{
+      o.classList.remove('correct','incorrect','disabled');
+      const l=o.querySelector('.opt-l').textContent.toLowerCase();
+      o.onclick=function(){ans(o,l);};
+    });
+    q.querySelectorAll('.q-fb').forEach(f=>f.classList.remove('show'));
+  });
+}
+</script>
+</body>
+</html>
